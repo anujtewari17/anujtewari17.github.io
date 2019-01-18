@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ <id>urn:iweb:28001A3D-639B-42A2-9389-98045236080B</id>
+ <title>Page list Atom feed</title>
+ <updated>2011-09-07T17:08:16-07:00</updated>
+ <link rel="self" href="feed.xml"/>
+ <generator>iWeb</generator>
+ <author>
+  <name>iWeb</name>
+ </author>
+ <entry>
+  <id>urn:iweb:D07F6B2E-3152-4FFA-ABA9-C9A83E465278</id>
+  <title>Home</title>
+  <title xmlns="urn:iweb:">Home</title>
+  <in-navbar xmlns="urn:iweb:">D07F6B2E-3152-4FFA-ABA9-C9A83E465278</in-navbar>
+  <link rel="alternate" href="Home.html"/>
+  <updated>2011-09-07T17:08:16.001-07:00</updated>
+  <content>Home</content>
+ </entry>
+ <entry>
+  <id>urn:iweb:1327B5CF-57DC-4728-BF94-A5AC6FC6328E</id>
+  <title>Research</title>
+  <title xmlns="urn:iweb:">Research</title>
+  <in-navbar xmlns="urn:iweb:">1327B5CF-57DC-4728-BF94-A5AC6FC6328E</in-navbar>
+  <link rel="alternate" href="Research.html"/>
+  <updated>2011-09-07T17:08:16.002-07:00</updated>
+  <content>Research</content>
+ </entry>
+ <entry>
+  <id>urn:iweb:C66BB1A7-9E6B-43B8-A83F-BE0942B20658</id>
+  <title>Publications</title>
+  <title xmlns="urn:iweb:">Publications</title>
+  <in-navbar xmlns="urn:iweb:">C66BB1A7-9E6B-43B8-A83F-BE0942B20658</in-navbar>
+  <link rel="alternate" href="Publications.html"/>
+  <updated>2011-09-07T17:08:16.003-07:00</updated>
+  <content>Publications</content>
+ </entry>
+ <entry>
+  <id>urn:iweb:2FF31407-C69F-4AF7-B751-D1D8E486DE5A</id>
+  <title>Classes</title>
+  <title xmlns="urn:iweb:">Classes</title>
+  <in-navbar xmlns="urn:iweb:">2FF31407-C69F-4AF7-B751-D1D8E486DE5A</in-navbar>
+  <link rel="alternate" href="Classes.html"/>
+  <updated>2011-09-07T17:08:16.004-07:00</updated>
+  <content>Classes</content>
+ </entry>
+ <entry>
+  <id>urn:iweb:28FA0011-62BE-4AFC-82C5-CBECBD5072DC</id>
+  <title>Teaching</title>
+  <title xmlns="urn:iweb:">Teaching</title>
+  <in-navbar xmlns="urn:iweb:">28FA0011-62BE-4AFC-82C5-CBECBD5072DC</in-navbar>
+  <link rel="alternate" href="Teaching.html"/>
+  <updated>2011-09-07T17:08:16.005-07:00</updated>
+  <content>Teaching</content>
+ </entry>
+ <entry>
+  <id>urn:iweb:C77B54BA-BCA5-4D46-AAA3-C08EDA0ADBA8</id>
+  <title>Personal</title>
+  <title xmlns="urn:iweb:">Personal</title>
+  <in-navbar xmlns="urn:iweb:">C77B54BA-BCA5-4D46-AAA3-C08EDA0ADBA8</in-navbar>
+  <link rel="alternate" href="Personal.html"/>
+  <updated>2011-09-07T17:08:16.006-07:00</updated>
+  <content>Personal</content>
+ </entry>
+</feed>
