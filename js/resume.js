@@ -8,7 +8,7 @@
       target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
       if (target.length) {
         $('html, body').animate({
-          scrollTop: (target.offset().top)
+          scrollTop: (target.offset().top - 70) // Adjusted to match body padding-top
         }, 1000, "easeInOutExpo");
         return false;
       }
@@ -22,7 +22,8 @@
 
   // Activate scrollspy to add active class to navbar items on scroll
   $('body').scrollspy({
-    target: '#sideNav'
+    target: '#topNav',
+    offset: 75 // Offset to correctly highlight when top of section is near top of viewport, considering nav height
   });
 
 })(jQuery); // End of use strict
