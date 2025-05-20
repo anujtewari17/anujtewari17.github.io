@@ -6,16 +6,19 @@
 
 body {
   font-family: 'Muli', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  padding-top: 54px;
+  padding-left: 0; /* Removed old padding-left */
+  padding-top: 70px; /* Added padding-top for fixed topNav, adjust if needed */
   color: #868e96;
 }
 
+/*
 @media (min-width: 992px) {
   body {
     padding-top: 0;
     padding-left: 17rem;
   }
 }
+*/
 
 h1,
 h2,
@@ -43,7 +46,7 @@ h3 {
 }
 
 p.lead {
-  font-size: 1.15rem;
+  font-size: 1.10rem; /* Changed font-size */
   font-weight: 400;
 }
 
@@ -51,7 +54,8 @@ p.lead {
   text-transform: uppercase;
   font-weight: 500;
   font-family: 'Saira Extra Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  font-size: 1.5rem;
+  font-size: 1.3rem; /* Changed font-size */
+  margin-bottom: 1rem; /* Added margin-bottom */
 }
 
 .social-icons a {
@@ -94,6 +98,69 @@ p.lead {
   color: var(--dynamic-primary-hover-color);
 }
 
+/* Styles for the responsive hamburger menu toggler and collapsed menu */
+#topNav .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.25); /* Lighter border for the button */
+}
+
+#topNav .navbar-toggler:focus {
+  outline: none; /* Or a custom outline */
+}
+
+@media (max-width: 991.98px) { /* Bootstrap's lg breakpoint - 1px */
+  #topNav .navbar-collapse.show,
+  #topNav .navbar-collapse.collapsing {
+    background-color: #343a40; /* Match topNav background */
+    padding: 1rem; /* Add some padding */
+    border-top: 1px solid #495057; /* Separator line */
+    margin-top: 0.5rem; /* Space from the main bar */
+    border-radius: 0.25rem; /* Optional: rounded corners */
+  }
+  #topNav .navbar-nav .nav-link {
+    padding-top: 0.5rem; /* More spacing for tappable links */
+    padding-bottom: 0.5rem;
+    /* Link colors should be inherited correctly from previous #topNav .navbar-nav .nav-link rules */
+  }
+}
+
+/* Top Navigation Bar Styles */
+#topNav {
+  background-color: #343a40; /* Dark background */
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #495057; /* Optional: subtle border */
+}
+
+/* Ensure it stays on top and spans full width if fixed-top doesn't handle it fully */
+#topNav.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030; /* Default Bootstrap fixed-top z-index */
+}
+
+#topNav .navbar-brand {
+  color: var(--dynamic-primary-color); /* Dynamic color for the brand */
+  font-weight: bold; /* Optional: make brand bolder */
+}
+
+#topNav .navbar-brand:hover {
+  color: var(--dynamic-primary-hover-color);
+}
+
+#topNav .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.75); /* Light color for links */
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+}
+
+#topNav .navbar-nav .nav-link:hover,
+#topNav .navbar-nav .nav-link.active { /* .active class will be added by scrollspy */
+  color: var(--dynamic-primary-color); /* Dynamic color on hover/active */
+}
+
+/*
 #sideNav .navbar-toggler:focus {
   outline-color: var(--dynamic-primary-color); 
 }
@@ -113,7 +180,7 @@ p.lead {
     flex-direction: column;
     width: 17rem;
     height: 100vh;
-    background-color: #343a40; /* Dark gray sidebar */
+    background-color: #343a40; 
   }
   #sideNav .navbar-brand {
     display: -webkit-box;
@@ -125,7 +192,7 @@ p.lead {
   #sideNav .navbar-brand .img-profile {
     max-width: 10rem;
     max-height: 10rem;
-    border: 0.5rem solid rgba(255, 255, 255, 0.2); /* Border is already suitable for dark bg */
+    border: 0.5rem solid rgba(255, 255, 255, 0.2); 
   }
   #sideNav .navbar-collapse {
     display: -webkit-box;
@@ -154,10 +221,11 @@ p.lead {
     display: block;
   }
 }
+*/
 
 section.resume-section {
-  padding-top: 5rem !important;
-  padding-bottom: 5rem !important;
+  padding-top: 6rem !important;
+  padding-bottom: 6rem !important;
   max-width: 75rem;
 }
 
@@ -174,16 +242,18 @@ section.resume-section .resume-item .resume-date {
   }
 }
 
+/* 
 @media (min-width: 992px) {
   section.resume-section {
     padding-top: 3rem !important;
     padding-bottom: 3rem !important;
   }
 }
+*/
 
 /*
 .bg-primary {
-  background-color: #33b5e5 !important;
+  background-color: #33b5e5 !important; 
 }
 */
 
@@ -199,6 +269,12 @@ a:hover, a:focus, a:active {
   color: var(--dynamic-primary-hover-color);
 }
 
+hr.m-0 { /* Added new rule */
+  border-top: 1px solid #e9ecef; /* Light gray top border */
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 #contactForm button[type="submit"] {
   background-color: var(--dynamic-primary-color);
   border-color: var(--dynamic-primary-color);
@@ -209,4 +285,18 @@ a:hover, a:focus, a:active {
   background-color: var(--dynamic-primary-hover-color);
   border-color: var(--dynamic-primary-hover-color);
   color: #fff;
+}
+
+/* Styles for general links within resume sections */
+.resume-section > div > p a:not(.btn):not(.social-icon-link), 
+.resume-section > div > ul a:not(.btn):not(.social-icon-link),
+.resume-section > div > div a:not(.btn):not(.social-icon-link) { /* Be more specific to avoid affecting buttons or special links */
+  color: var(--dynamic-primary-color);
+  text-decoration: none; /* No underline by default */
+}
+.resume-section > div > p a:not(.btn):not(.social-icon-link):hover,
+.resume-section > div > ul a:not(.btn):not(.social-icon-link):hover,
+.resume-section > div > div a:not(.btn):not(.social-icon-link):hover {
+  color: var(--dynamic-primary-hover-color);
+  text-decoration: underline; /* Underline on hover */
 }
