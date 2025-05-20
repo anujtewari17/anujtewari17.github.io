@@ -65,6 +65,9 @@
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#awards">Awards</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -79,7 +82,7 @@
           <div class="subheading mb-5">Head of Research, Google AI Overviews and Search Result Page
           </div>
           <p class="lead mb-5">I am a computer scientist by training, with a cross disciplinary background in Human Computer Interaction, Natural Language Processing and Education. I am experienced in building product research teams that use qualitative and quantitative data to generate actionable insights and influence product direction. Thanks for visiting my homepage!</p>
-          <p class="lead mb-5">Contact: first name followed by last name followed by the number 17 at Gmail</p>
+          
           <div class="social-icons">
 <!--             <a href="https://www.linkedin.com/in/anuj-tewari/">
               <i class="fab fa-linkedin-in"></i>
@@ -291,6 +294,32 @@
         </div>
       </section>
 
+      <hr class="m-0">
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="contact">
+        <div class="my-auto">
+          <h2 class="mb-5">Contact Me</h2>
+          <form id="contactForm" action="https://formspree.io/f/anuj.tewari17@gmail.com" method="POST">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="email" name="_replyto" placeholder="name@example.com" required>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea class="form-control" id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+      </section>
+
     </div>
 
     <!-- Bootstrap core JavaScript -->
@@ -302,6 +331,7 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/resume.min.js"></script>
+  <script src="js/random-colors.js"></script>
 
   </body>
 
