@@ -72,7 +72,7 @@ p.lead {
 }
 
 .social-icons a:hover {
-  background-color: #33b5e5;
+  background-color: var(--dynamic-primary-color);
 }
 
 .dev-icons {
@@ -80,17 +80,22 @@ p.lead {
 }
 
 .dev-icons .list-inline-item i:hover {
-  color: #33b5e5;
+  color: var(--dynamic-primary-color);
 }
 
 #sideNav .navbar-nav .nav-item .nav-link {
   font-weight: 800;
   letter-spacing: 0.05rem;
   text-transform: uppercase;
+  color: #f8f9fa; /* Light color for nav links */
+}
+
+#sideNav .navbar-nav .nav-item .nav-link:hover { /* Added hover for sidebar links */
+  color: var(--dynamic-primary-hover-color);
 }
 
 #sideNav .navbar-toggler:focus {
-  outline-color: #33b5e5;
+  outline-color: var(--dynamic-primary-color); 
 }
 
 @media (min-width: 992px) {
@@ -108,6 +113,7 @@ p.lead {
     flex-direction: column;
     width: 17rem;
     height: 100vh;
+    background-color: #343a40; /* Dark gray sidebar */
   }
   #sideNav .navbar-brand {
     display: -webkit-box;
@@ -119,7 +125,7 @@ p.lead {
   #sideNav .navbar-brand .img-profile {
     max-width: 10rem;
     max-height: 10rem;
-    border: 0.5rem solid rgba(255, 255, 255, 0.2);
+    border: 0.5rem solid rgba(255, 255, 255, 0.2); /* Border is already suitable for dark bg */
   }
   #sideNav .navbar-collapse {
     display: -webkit-box;
@@ -175,18 +181,32 @@ section.resume-section .resume-item .resume-date {
   }
 }
 
+/*
 .bg-primary {
   background-color: #33b5e5 !important;
 }
+*/
 
 .text-primary {
-  color: #33b5e5 !important;
+  color: var(--dynamic-primary-color) !important;
 }
 
 a {
-  color: #33b5e5;
+  color: var(--dynamic-primary-color);
 }
 
 a:hover, a:focus, a:active {
-  color: #0099CC;
+  color: var(--dynamic-primary-hover-color);
+}
+
+#contactForm button[type="submit"] {
+  background-color: var(--dynamic-primary-color);
+  border-color: var(--dynamic-primary-color);
+  color: #fff; /* White text for better contrast on colored buttons */
+}
+
+#contactForm button[type="submit"]:hover {
+  background-color: var(--dynamic-primary-hover-color);
+  border-color: var(--dynamic-primary-hover-color);
+  color: #fff;
 }
