@@ -11,6 +11,41 @@
   }
 }
 
+#topNav {
+  background-color: $gray-800;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid $gray-700;
+
+  .navbar-brand {
+    color: $primary;
+    &:hover {
+      color: darken($primary, 10%);
+    }
+  }
+
+  .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.75);
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+    &:hover,
+    &.active {
+      color: $primary;
+    }
+  }
+}
+
+@media (max-width: 991.98px) {
+  #topNav .navbar-collapse.show,
+  #topNav .navbar-collapse.collapsing {
+    background-color: $gray-800;
+    padding: 1rem;
+    border-top: 1px solid $gray-700;
+    margin-top: 0.5rem;
+    border-radius: 0.25rem;
+  }
+}
+
 @media (min-width: 992px) {
   #sideNav {
     text-align: center;

@@ -8,7 +8,8 @@ body {
   font-family: 'Muli', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   padding-left: 0; /* Removed old padding-left */
   padding-top: 70px; /* Added padding-top for fixed topNav, adjust if needed */
-  color: #868e96;
+  color: #8892b0; /* --slate */
+  background-color: #020c1b; /* --dark-navy */
 }
 
 /*
@@ -29,7 +30,7 @@ h6 {
   font-family: 'Saira Extra Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   font-weight: 700;
   text-transform: uppercase;
-  color: #343a40;
+  color: #ccd6f6; /* --lightest-slate */
 }
 
 h1 {
@@ -48,6 +49,7 @@ h3 {
 p.lead {
   font-size: 1.10rem; /* Changed font-size */
   font-weight: 400;
+  color: #a8b2d1; /* --light-slate */
 }
 
 .subheading {
@@ -56,14 +58,15 @@ p.lead {
   font-family: 'Saira Extra Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   font-size: 1.3rem; /* Changed font-size */
   margin-bottom: 1rem; /* Added margin-bottom */
+  color: #a8b2d1; /* --light-slate */
 }
 
 .social-icons a {
   display: inline-block;
   height: 3.5rem;
   width: 3.5rem;
-  background-color: #495057;
-  color: #fff !important;
+  background-color: #112240; /* --light-navy */
+  color: #ccd6f6 !important; /* --lightest-slate */
   border-radius: 100%;
   text-align: center;
   font-size: 1.5rem;
@@ -76,7 +79,8 @@ p.lead {
 }
 
 .social-icons a:hover {
-  background-color: var(--dynamic-primary-color);
+  background-color: #64ffda; /* --green */
+  color: #020c1b !important; /* --dark-navy for contrast */
 }
 
 .dev-icons {
@@ -84,21 +88,23 @@ p.lead {
 }
 
 .dev-icons .list-inline-item i:hover {
-  color: var(--dynamic-primary-color);
+  color: #64ffda; /* --green */
 }
 
 #sideNav .navbar-nav .nav-item .nav-link {
   font-weight: 800;
   letter-spacing: 0.05rem;
   text-transform: uppercase;
-  color: #f8f9fa; /* Light color for nav links */
+  color: #8892b0; /* --slate */
 }
 
 #sideNav .navbar-nav .nav-item .nav-link:hover { /* Added hover for sidebar links */
-  color: var(--dynamic-primary-hover-color);
+  color: #64ffda; /* --green */
 }
 
 /* Styles for the responsive hamburger menu toggler and collapsed menu */
+/* #sideNav specific styles were moved to the @media (min-width: 992px) block */
+
 #topNav .navbar-toggler {
   border-color: rgba(255, 255, 255, 0.25); /* Lighter border for the button */
 }
@@ -125,10 +131,10 @@ p.lead {
 
 /* Top Navigation Bar Styles */
 #topNav {
-  background-color: #343a40; /* Dark background */
+  background-color: #0a192f; /* --navy */
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid #495057; /* Optional: subtle border */
+  border-bottom: 1px solid #233554; /* --lightest-navy or --dark-slate for border */
 }
 
 /* Ensure it stays on top and spans full width if fixed-top doesn't handle it fully */
@@ -141,23 +147,23 @@ p.lead {
 }
 
 #topNav .navbar-brand {
-  color: var(--dynamic-primary-color); /* Dynamic color for the brand */
+  color: #64ffda; /* --green */
   font-weight: bold; /* Optional: make brand bolder */
 }
 
 #topNav .navbar-brand:hover {
-  color: var(--dynamic-primary-hover-color);
+  color: #e6f1ff; /* --white */
 }
 
 #topNav .navbar-nav .nav-link {
-  color: rgba(255, 255, 255, 0.75); /* Light color for links */
+  color: #8892b0; /* --slate */
   padding-right: 0.75rem;
   padding-left: 0.75rem;
 }
 
 #topNav .navbar-nav .nav-link:hover,
 #topNav .navbar-nav .nav-link.active { /* .active class will be added by scrollspy */
-  color: var(--dynamic-primary-color); /* Dynamic color on hover/active */
+  color: #64ffda; /* --green */
 }
 
 /*
@@ -180,7 +186,7 @@ p.lead {
     flex-direction: column;
     width: 17rem;
     height: 100vh;
-    background-color: #343a40; 
+  background-color: #0a192f; /* --navy */
   }
   #sideNav .navbar-brand {
     display: -webkit-box;
@@ -192,7 +198,7 @@ p.lead {
   #sideNav .navbar-brand .img-profile {
     max-width: 10rem;
     max-height: 10rem;
-    border: 0.5rem solid rgba(255, 255, 255, 0.2); 
+    border: 0.5rem solid rgba(100, 255, 218, 0.1); /* --green-tint */
   }
   #sideNav .navbar-collapse {
     display: -webkit-box;
@@ -258,45 +264,45 @@ section.resume-section .resume-item .resume-date {
 */
 
 .text-primary {
-  color: var(--dynamic-primary-color) !important;
+  color: #64ffda !important; /* --green */
 }
 
 a {
-  color: var(--dynamic-primary-color);
+  color: #64ffda; /* --green */
 }
 
 a:hover, a:focus, a:active {
-  color: var(--dynamic-primary-hover-color);
+  color: #e6f1ff; /* --white */
 }
 
 hr.m-0 { /* Added new rule */
-  border-top: 1px solid #e9ecef; /* Light gray top border */
+  border-top: 1px solid #233554; /* --lightest-navy */
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
 
 #contactForm button[type="submit"] {
-  background-color: var(--dynamic-primary-color);
-  border-color: var(--dynamic-primary-color);
-  color: #fff; /* White text for better contrast on colored buttons */
+  background-color: #64ffda; /* --green */
+  border-color: #64ffda; /* --green */
+  color: #020c1b; /* --dark-navy for contrast */
 }
 
 #contactForm button[type="submit"]:hover {
-  background-color: var(--dynamic-primary-hover-color);
-  border-color: var(--dynamic-primary-hover-color);
-  color: #fff;
+  background-color: rgba(100, 255, 218, 0.8); /* Slightly desaturated/darker green */
+  border-color: rgba(100, 255, 218, 0.8);
+  color: #020c1b; /* --dark-navy for contrast */
 }
 
 /* Styles for general links within resume sections */
-.resume-section > div > p a:not(.btn):not(.social-icon-link), 
+.resume-section > div > p a:not(.btn):not(.social-icon-link),
 .resume-section > div > ul a:not(.btn):not(.social-icon-link),
 .resume-section > div > div a:not(.btn):not(.social-icon-link) { /* Be more specific to avoid affecting buttons or special links */
-  color: var(--dynamic-primary-color);
+  color: #64ffda; /* --green */
   text-decoration: none; /* No underline by default */
 }
 .resume-section > div > p a:not(.btn):not(.social-icon-link):hover,
 .resume-section > div > ul a:not(.btn):not(.social-icon-link):hover,
 .resume-section > div > div a:not(.btn):not(.social-icon-link):hover {
-  color: var(--dynamic-primary-hover-color);
+  color: #e6f1ff; /* --white */
   text-decoration: underline; /* Underline on hover */
 }
