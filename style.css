@@ -20,14 +20,6 @@ body { font-family: 'Inter', sans-serif; }
   grid-template-columns: 1fr;
   gap: 4rem;
 }
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  border-left: 2px solid #d1d5db;
-}
 .timeline-item {
   position: relative;
   padding: 0 2rem;
@@ -58,9 +50,6 @@ body { font-family: 'Inter', sans-serif; }
   .timeline {
     grid-template-columns: repeat(2, 1fr);
   }
-  .timeline-item {
-    margin-bottom: 0;
-  }
   .timeline-item-left {
     grid-column: 1;
   }
@@ -69,9 +58,6 @@ body { font-family: 'Inter', sans-serif; }
   }
 }
 @media (max-width: 767px) {
-  .timeline::before {
-    left: 1.25rem;
-  }
   .timeline-item {
     padding-left: 2.5rem;
   }
