@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="text-gray-800">
-  <nav x-data="{open:false}" class="fixed top-0 inset-x-0 bg-white/80 backdrop-blur-md shadow z-20">
+  <nav data-aos="fade-down" x-data="{open:false}" class="fixed top-0 inset-x-0 bg-white/80 backdrop-blur-md shadow z-20">
     <div class="max-w-5xl mx-auto flex items-center justify-between p-4">
       <a href="#hero" class="font-bold text-xl hover:underline">Anuj Tewari</a>
       <button @click="open=!open" class="md:hidden p-2" aria-label="Toggle navigation">
@@ -45,23 +45,23 @@
     <section id="experience" data-aos="fade-up">
       <h2 class="text-3xl font-bold mb-8 text-center">Experience</h2>
       <div class="timeline">
-        <div class="timeline-item" data-aos="fade-up">
+        <div class="timeline-item timeline-item-left" data-aos="fade-up">
           <h3 class="font-semibold">Head of Research</h3>
           <p class="text-sm text-gray-500">Google AI Overviews and Search Result Page <span class="float-right">Jun 2022 - Present</span></p>
         </div>
-        <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="timeline-item timeline-item-right" data-aos="fade-up" data-aos-delay="100">
           <h3 class="font-semibold">Research Manager</h3>
           <p class="text-sm text-gray-500">Facebook <span class="float-right">Nov 2018 - Jun 2022</span></p>
         </div>
-        <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+        <div class="timeline-item timeline-item-left" data-aos="fade-up" data-aos-delay="200">
           <h3 class="font-semibold">Director, User Research and Analytics</h3>
           <p class="text-sm text-gray-500">Salesforce <span class="float-right">Nov 2017 - Nov 2018</span></p>
         </div>
-        <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+        <div class="timeline-item timeline-item-right" data-aos="fade-up" data-aos-delay="300">
           <h3 class="font-semibold">Researcher &amp; Research Manager</h3>
           <p class="text-sm text-gray-500">Uber <span class="float-right">July 2015 - Nov 2017</span></p>
         </div>
-        <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+        <div class="timeline-item timeline-item-left" data-aos="fade-up" data-aos-delay="400">
           <h3 class="font-semibold">Researcher &amp; Lead Engineer</h3>
           <p class="text-sm text-gray-500">General Electric <span class="float-right">July 2013 - July 2015</span></p>
         </div>
@@ -71,11 +71,11 @@
     <section id="education" data-aos="fade-up">
       <h2 class="text-3xl font-bold mb-8 text-center">Education</h2>
       <div class="timeline">
-        <div class="timeline-item" data-aos="fade-up">
+        <div class="timeline-item timeline-item-right" data-aos="fade-up">
           <h3 class="font-semibold">University of California Berkeley</h3>
           <p class="text-sm text-gray-500">Doctor of Philosophy – Computer Science <span class="float-right">August 2008 - May 2013</span></p>
         </div>
-        <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="timeline-item timeline-item-left" data-aos="fade-up" data-aos-delay="100">
           <h3 class="font-semibold">Dhirubhai Ambani Institute of Information and Communication Technology</h3>
           <p class="text-sm text-gray-500">Bachelor of Technology – Information and Communication Technology <span class="float-right">August 2004 - May 2008</span></p>
         </div>
@@ -122,8 +122,9 @@
     </section>
 
     <section id="contact" data-aos="fade-up">
-      <h2 class="text-3xl font-bold mb-4">Contact</h2>
-      <p>Email me: first name followed by last name followed by the number 17 at Gmail</p>
+      <h2 class="text-3xl font-bold mb-4">Let’s Connect</h2>
+      <p class="mb-4">Email me: first name followed by last name followed by the number 17 at Gmail</p>
+      <a href="mailto:anujtewari17@gmail.com" class="bg-emerald-600 text-white font-semibold px-6 py-3 rounded-full shadow hover:bg-emerald-700 transition">Email Me</a>
     </section>
   </main>
 
