@@ -4,3 +4,4 @@ html { scroll-behavior: smooth; }
 .reveal-left { transform: translateX(-20px); }
 .reveal-right { transform: translateX(20px); }
 .scroll-reveal.animate { opacity: 1; transform: translateX(0) translateY(0); }
+

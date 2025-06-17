@@ -12,17 +12,22 @@
   <nav class="fixed w-full bg-white/80 backdrop-blur z-10">
     <div class="max-w-5xl mx-auto flex justify-between items-center p-4">
       <a href="#hero" class="font-bold text-xl">Anuj Tewari</a>
-      <div class="space-x-4 hidden md:block">
-        <a href="#about" class="hover:text-indigo-600">About</a>
-        <a href="#experience" class="hover:text-indigo-600">Experience</a>
-        <a href="#education" class="hover:text-indigo-600">Education</a>
-        <a href="#interests" class="hover:text-indigo-600">Personal</a>
-        <a href="#awards" class="hover:text-indigo-600">Awards</a>
+      <button id="menu-btn" class="md:hidden p-2" aria-label="Toggle menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <div id="nav-links" class="hidden flex-col space-y-2 absolute right-4 top-full bg-white p-4 shadow rounded md:static md:flex md:flex-row md:space-y-0 md:space-x-4">
+        <a href="#about" class="hover:text-emerald-600">About</a>
+        <a href="#experience" class="hover:text-emerald-600">Experience</a>
+        <a href="#education" class="hover:text-emerald-600">Education</a>
+        <a href="#interests" class="hover:text-emerald-600">Personal</a>
+        <a href="#awards" class="hover:text-emerald-600">Awards</a>
       </div>
     </div>
   </nav>
 
-  <header id="hero" class="h-screen flex items-center justify-center bg-gradient-to-r from-emerald-600 to-cyan-600 text-white text-center">
+  <header id="hero" class="hero h-screen flex items-center justify-center bg-gradient-to-r from-emerald-600 to-cyan-600 text-white text-center">
     <div class="space-y-6">
       <img src="img/profile.jpg" alt="profile" class="w-40 h-40 rounded-full mx-auto shadow-lg scroll-reveal reveal-up">
       <h1 class="text-4xl md:text-6xl font-bold scroll-reveal reveal-up">Anuj <span class="text-yellow-300">Tewari</span></h1>
@@ -32,66 +37,66 @@
   </header>
 
   <main class="max-w-5xl mx-auto px-4 py-12 space-y-24">
-    <section id="about" class="scroll-reveal">
+    <section id="about" class="scroll-reveal reveal-up">
       <h2 class="text-3xl font-bold mb-4">About</h2>
-      <p class="mb-4">I am a computer scientist by training, with a cross disciplinary background in Human Computer Interaction, Natural Language Processing and Education. I am experienced in building product research teams that use qualitative and quantitative data to generate actionable insights and influence product direction. Thanks for visiting my homepage!</p>
-      <p>Contact: first name followed by last name followed by the number 17 at Gmail</p>
+      <p class="mb-4 scroll-reveal reveal-up">I am a computer scientist by training, with a cross disciplinary background in Human Computer Interaction, Natural Language Processing and Education. I am experienced in building product research teams that use qualitative and quantitative data to generate actionable insights and influence product direction. Thanks for visiting my homepage!</p>
+      <p class="scroll-reveal reveal-up">Contact: first name followed by last name followed by the number 17 at Gmail</p>
     </section>
 
-    <section id="experience" class="scroll-reveal">
+    <section id="experience" class="scroll-reveal reveal-left">
       <h2 class="text-3xl font-bold mb-4">Experience</h2>
       <div class="space-y-6">
-        <div>
+        <div class="scroll-reveal reveal-up">
           <h3 class="font-semibold">Head of Research</h3>
           <p class="text-sm text-gray-500">Google AI Overviews and Search Result Page <span class="float-right">Jun 2022 - Present</span></p>
         </div>
-        <div>
+        <div class="scroll-reveal reveal-up">
           <h3 class="font-semibold">Research Manager</h3>
           <p class="text-sm text-gray-500">Facebook <span class="float-right">Nov 2018 - Jun 2022</span></p>
         </div>
-        <div>
+        <div class="scroll-reveal reveal-up">
           <h3 class="font-semibold">Director, User Research and Analytics</h3>
           <p class="text-sm text-gray-500">Salesforce <span class="float-right">Nov 2017 - Nov 2018</span></p>
         </div>
-        <div>
+        <div class="scroll-reveal reveal-up">
           <h3 class="font-semibold">Researcher &amp; Research Manager</h3>
           <p class="text-sm text-gray-500">Uber <span class="float-right">July 2015 - Nov 2017</span></p>
         </div>
-        <div>
+        <div class="scroll-reveal reveal-up">
           <h3 class="font-semibold">Researcher &amp; Lead Engineer</h3>
           <p class="text-sm text-gray-500">General Electric <span class="float-right">July 2013 - July 2015</span></p>
         </div>
       </div>
     </section>
-    <section id="education" class="scroll-reveal">
+    <section id="education" class="scroll-reveal reveal-right">
       <h2 class="text-3xl font-bold mb-4">Education</h2>
       <div class="space-y-6">
-        <div>
+        <div class="scroll-reveal reveal-up">
           <h3 class="font-semibold">University of California Berkeley</h3>
           <p class="text-sm text-gray-500">Doctor of Philosophy – Computer Science <span class="float-right">August 2008 - May 2013</span></p>
         </div>
-        <div>
+        <div class="scroll-reveal reveal-up">
           <h3 class="font-semibold">Dhirubhai Ambani Institute of Information and Communication Technology</h3>
           <p class="text-sm text-gray-500">Bachelor of Technology – Information and Communication Technology <span class="float-right">August 2004 - May 2008</span></p>
         </div>
       </div>
     </section>
-    <section id="interests" class="scroll-reveal">
+    <section id="interests" class="scroll-reveal reveal-left">
       <h2 class="text-3xl font-bold mb-4">Personal</h2>
-      <p class="mb-2">Apart from being a research leader, I also enjoy hiking, photography, reading and Xbox games.</p>
-      <p class="mb-2">Outside of work, most often I can be found hanging out with my wife Devanshi, our kids (Parth and Anya) and our dog Milo.</p>
-      <p>My brother <a href="https://ambujtewari.github.io/" class="text-indigo-600 underline">Ambuj Tewari</a> is a Professor in Statistics at University of Michigan, Ann Arbor.</p>
+      <p class="mb-2 scroll-reveal reveal-up">Apart from being a research leader, I also enjoy hiking, photography, reading and Xbox games.</p>
+      <p class="mb-2 scroll-reveal reveal-up">Outside of work, most often I can be found hanging out with my wife Devanshi, our kids (Parth and Anya) and our dog Milo.</p>
+      <p class="scroll-reveal reveal-up">My brother <a href="https://ambujtewari.github.io/" class="text-emerald-600 underline">Ambuj Tewari</a> is a Professor in Statistics at University of Michigan, Ann Arbor.</p>
     </section>
 
-    <section id="awards" class="scroll-reveal">
+    <section id="awards" class="scroll-reveal reveal-right">
       <h2 class="text-3xl font-bold mb-4">Awards &amp; Memberships</h2>
       <ul class="list-disc list-inside space-y-2">
-        <li>Sigma Xi Member (Since 2014)</li>
-        <li>ACM SIGCHI Member (Since 2010)</li>
-        <li>Samuel Silver Memorial Award</li>
-        <li>Big Ideas@Berkeley Winner</li>
-        <li>Qualcomm Innovation Fellowship Finalist</li>
-        <li>ACM CHI Best Paper Honorable Mention Winner</li>
+        <li class="scroll-reveal reveal-up">Sigma Xi Member (Since 2014)</li>
+        <li class="scroll-reveal reveal-up">ACM SIGCHI Member (Since 2010)</li>
+        <li class="scroll-reveal reveal-up">Samuel Silver Memorial Award</li>
+        <li class="scroll-reveal reveal-up">Big Ideas@Berkeley Winner</li>
+        <li class="scroll-reveal reveal-up">Qualcomm Innovation Fellowship Finalist</li>
+        <li class="scroll-reveal reveal-up">ACM CHI Best Paper Honorable Mention Winner</li>
       </ul>
     </section>
   </main>
