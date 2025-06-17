@@ -11,12 +11,4 @@ window.addEventListener('DOMContentLoaded', () => {
     el.style.transitionDelay = `${idx * 0.1}s`;
     observer.observe(el);
   });
-
-  const btn = document.getElementById('menu-btn');
-  const links = document.getElementById('nav-links');
-  if (btn && links) {
-    btn.addEventListener('click', () => {
-      links.classList.toggle('hidden');
-    });
-  }
 });
