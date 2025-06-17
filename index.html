@@ -4,103 +4,114 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Anuj's Homepage</title>
-  <script src="https://cdn.tailwindcss.com"></script>
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-  <link href="style.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body class="font-sans text-gray-800">
-  <nav class="fixed w-full bg-white/80 backdrop-blur z-10">
+  <nav class="fixed top-0 w-full bg-white/80 backdrop-blur z-20">
     <div class="max-w-5xl mx-auto flex justify-between items-center p-4">
       <a href="#hero" class="font-bold text-xl">Anuj Tewari</a>
       <button id="menu-btn" class="md:hidden p-2" aria-label="Toggle menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
+        <i class="fa fa-bars text-xl"></i>
       </button>
-      <div id="nav-links" class="hidden flex-col space-y-2 absolute right-4 top-full bg-white p-4 shadow rounded md:static md:flex md:flex-row md:space-y-0 md:space-x-4">
+      <div id="nav-links" class="hidden flex-col space-y-2 absolute right-4 top-full bg-white p-4 shadow rounded md:static md:flex md:flex-row md:space-y-0 md:space-x-6">
         <a href="#about" class="hover:text-emerald-600">About</a>
         <a href="#experience" class="hover:text-emerald-600">Experience</a>
         <a href="#education" class="hover:text-emerald-600">Education</a>
         <a href="#interests" class="hover:text-emerald-600">Personal</a>
         <a href="#awards" class="hover:text-emerald-600">Awards</a>
+        <a href="#contact" class="hover:text-emerald-600">Contact</a>
       </div>
     </div>
   </nav>
 
-  <header id="hero" class="hero h-screen flex items-center justify-center bg-gradient-to-r from-emerald-600 to-cyan-600 text-white text-center">
-    <div class="space-y-6">
-      <img src="img/profile.jpg" alt="profile" class="w-40 h-40 rounded-full mx-auto shadow-lg scroll-reveal reveal-up">
-      <h1 class="text-4xl md:text-6xl font-bold scroll-reveal reveal-up">Anuj <span class="text-yellow-300">Tewari</span></h1>
-      <p class="text-lg md:text-2xl scroll-reveal reveal-up">Head of Research, Google AI Overviews and Search Result Page</p>
-      <a href="#about" class="mt-8 inline-block bg-white text-emerald-700 font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100">Learn more</a>
+  <header id="hero" class="hero-animate h-screen flex items-center justify-center bg-gradient-to-r from-emerald-600 to-cyan-600 text-white text-center">
+    <div class="space-y-6" data-aos="fade-up">
+      <img src="img/profile.jpg" alt="Profile" class="w-40 h-40 rounded-full mx-auto shadow-lg">
+      <h1 class="text-4xl md:text-6xl font-bold">Anuj <span class="text-yellow-300">Tewari</span></h1>
+      <p class="text-lg md:text-2xl">Head of Research, Google AI Overviews and Search Result Page</p>
+      <a href="#contact" class="mt-8 inline-block bg-white text-emerald-700 font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100">Email Me</a>
     </div>
   </header>
 
-  <main class="max-w-5xl mx-auto px-4 py-12 space-y-24">
-    <section id="about" class="scroll-reveal reveal-up">
-      <h2 class="text-3xl font-bold mb-4">About</h2>
-      <p class="mb-4 scroll-reveal reveal-up">I am a computer scientist by training, with a cross disciplinary background in Human Computer Interaction, Natural Language Processing and Education. I am experienced in building product research teams that use qualitative and quantitative data to generate actionable insights and influence product direction. Thanks for visiting my homepage!</p>
-      <p class="scroll-reveal reveal-up">Contact: first name followed by last name followed by the number 17 at Gmail</p>
+  <main class="max-w-5xl mx-auto px-4 py-16 space-y-24">
+    <section id="about">
+      <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">About</h2>
+      <p class="mb-4" data-aos="fade-up" data-aos-delay="100">I am a computer scientist by training, with a cross disciplinary background in Human Computer Interaction, Natural Language Processing and Education. I am experienced in building product research teams that use qualitative and quantitative data to generate actionable insights and influence product direction. Thanks for visiting my homepage!</p>
+      <p data-aos="fade-up" data-aos-delay="200">Contact: first name followed by last name followed by the number 17 at Gmail</p>
     </section>
 
-    <section id="experience" class="scroll-reveal reveal-left">
-      <h2 class="text-3xl font-bold mb-4">Experience</h2>
-      <div class="space-y-6">
-        <div class="scroll-reveal reveal-up">
+    <section id="experience">
+      <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">Experience</h2>
+      <div class="grid gap-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="p-4 bg-white shadow rounded hover:shadow-lg transition">
           <h3 class="font-semibold">Head of Research</h3>
           <p class="text-sm text-gray-500">Google AI Overviews and Search Result Page <span class="float-right">Jun 2022 - Present</span></p>
         </div>
-        <div class="scroll-reveal reveal-up">
+        <div class="p-4 bg-white shadow rounded hover:shadow-lg transition">
           <h3 class="font-semibold">Research Manager</h3>
           <p class="text-sm text-gray-500">Facebook <span class="float-right">Nov 2018 - Jun 2022</span></p>
         </div>
-        <div class="scroll-reveal reveal-up">
+        <div class="p-4 bg-white shadow rounded hover:shadow-lg transition">
           <h3 class="font-semibold">Director, User Research and Analytics</h3>
           <p class="text-sm text-gray-500">Salesforce <span class="float-right">Nov 2017 - Nov 2018</span></p>
         </div>
-        <div class="scroll-reveal reveal-up">
+        <div class="p-4 bg-white shadow rounded hover:shadow-lg transition">
           <h3 class="font-semibold">Researcher &amp; Research Manager</h3>
           <p class="text-sm text-gray-500">Uber <span class="float-right">July 2015 - Nov 2017</span></p>
         </div>
-        <div class="scroll-reveal reveal-up">
+        <div class="p-4 bg-white shadow rounded hover:shadow-lg transition">
           <h3 class="font-semibold">Researcher &amp; Lead Engineer</h3>
           <p class="text-sm text-gray-500">General Electric <span class="float-right">July 2013 - July 2015</span></p>
         </div>
       </div>
     </section>
-    <section id="education" class="scroll-reveal reveal-right">
-      <h2 class="text-3xl font-bold mb-4">Education</h2>
-      <div class="space-y-6">
-        <div class="scroll-reveal reveal-up">
+    <section id="education">
+      <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">Education</h2>
+      <div class="grid gap-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="p-4 bg-white shadow rounded hover:shadow-lg transition">
           <h3 class="font-semibold">University of California Berkeley</h3>
           <p class="text-sm text-gray-500">Doctor of Philosophy – Computer Science <span class="float-right">August 2008 - May 2013</span></p>
         </div>
-        <div class="scroll-reveal reveal-up">
+        <div class="p-4 bg-white shadow rounded hover:shadow-lg transition">
           <h3 class="font-semibold">Dhirubhai Ambani Institute of Information and Communication Technology</h3>
           <p class="text-sm text-gray-500">Bachelor of Technology – Information and Communication Technology <span class="float-right">August 2004 - May 2008</span></p>
         </div>
       </div>
     </section>
-    <section id="interests" class="scroll-reveal reveal-left">
-      <h2 class="text-3xl font-bold mb-4">Personal</h2>
-      <p class="mb-2 scroll-reveal reveal-up">Apart from being a research leader, I also enjoy hiking, photography, reading and Xbox games.</p>
-      <p class="mb-2 scroll-reveal reveal-up">Outside of work, most often I can be found hanging out with my wife Devanshi, our kids (Parth and Anya) and our dog Milo.</p>
-      <p class="scroll-reveal reveal-up">My brother <a href="https://ambujtewari.github.io/" class="text-emerald-600 underline">Ambuj Tewari</a> is a Professor in Statistics at University of Michigan, Ann Arbor.</p>
+    <section id="interests">
+      <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">Personal</h2>
+      <p class="mb-2" data-aos="fade-up" data-aos-delay="100">Apart from being a research leader, I also enjoy hiking, photography, reading and Xbox games.</p>
+      <p class="mb-2" data-aos="fade-up" data-aos-delay="200">Outside of work, most often I can be found hanging out with my wife Devanshi, our kids (Parth and Anya) and our dog Milo.</p>
+      <p data-aos="fade-up" data-aos-delay="300">My brother <a href="https://ambujtewari.github.io/" class="text-emerald-600 underline">Ambuj Tewari</a> is a Professor in Statistics at University of Michigan, Ann Arbor.</p>
     </section>
 
-    <section id="awards" class="scroll-reveal reveal-right">
-      <h2 class="text-3xl font-bold mb-4">Awards &amp; Memberships</h2>
-      <ul class="list-disc list-inside space-y-2">
-        <li class="scroll-reveal reveal-up">Sigma Xi Member (Since 2014)</li>
-        <li class="scroll-reveal reveal-up">ACM SIGCHI Member (Since 2010)</li>
-        <li class="scroll-reveal reveal-up">Samuel Silver Memorial Award</li>
-        <li class="scroll-reveal reveal-up">Big Ideas@Berkeley Winner</li>
-        <li class="scroll-reveal reveal-up">Qualcomm Innovation Fellowship Finalist</li>
-        <li class="scroll-reveal reveal-up">ACM CHI Best Paper Honorable Mention Winner</li>
-      </ul>
+    <section id="awards">
+      <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">Awards &amp; Memberships</h2>
+      <div class="grid gap-4 sm:grid-cols-2" data-aos="fade-up" data-aos-delay="100">
+        <div class="p-4 bg-white shadow rounded hover:shadow-lg transition">Sigma Xi Member (Since 2014)</div>
+        <div class="p-4 bg-white shadow rounded hover:shadow-lg transition">ACM SIGCHI Member (Since 2010)</div>
+        <div class="p-4 bg-white shadow rounded hover:shadow-lg transition">Samuel Silver Memorial Award</div>
+        <div class="p-4 bg-white shadow rounded hover:shadow-lg transition">Big Ideas@Berkeley Winner</div>
+        <div class="p-4 bg-white shadow rounded hover:shadow-lg transition">Qualcomm Innovation Fellowship Finalist</div>
+        <div class="p-4 bg-white shadow rounded hover:shadow-lg transition">ACM CHI Best Paper Honorable Mention Winner</div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">Contact</h2>
+      <p data-aos="fade-up" data-aos-delay="100">Email: <a href="mailto:anujtewari17@gmail.com" class="text-emerald-600 underline">anujtewari17@gmail.com</a></p>
     </section>
   </main>
 
+  <footer class="text-center py-8 text-sm text-gray-600">
+    &copy; <span id="year"></span> Anuj Tewari
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
