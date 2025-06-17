@@ -7,5 +7,8 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     });
   }, { threshold: 0.1 });
-  document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+  document.querySelectorAll('.scroll-reveal').forEach((el, idx) => {
+    el.style.transitionDelay = `${idx * 0.1}s`;
+    observer.observe(el);
+  });
 });

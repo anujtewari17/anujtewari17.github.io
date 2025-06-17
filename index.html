@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Anuj's Homepage</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <link href="style.css" rel="stylesheet">
 </head>
 <body class="font-sans text-gray-800">
@@ -21,12 +22,12 @@
     </div>
   </nav>
 
-  <header id="hero" class="h-screen flex items-center justify-center bg-gradient-to-r from-purple-700 to-indigo-600 text-white text-center">
+  <header id="hero" class="h-screen flex items-center justify-center bg-gradient-to-r from-emerald-600 to-cyan-600 text-white text-center">
     <div class="space-y-6">
-      <img src="img/profile.jpg" alt="profile" class="w-40 h-40 rounded-full mx-auto shadow-lg scroll-reveal">
-      <h1 class="text-4xl md:text-6xl font-bold scroll-reveal">Anuj <span class="text-yellow-300">Tewari</span></h1>
-      <p class="text-lg md:text-2xl scroll-reveal">Head of Research, Google AI Overviews and Search Result Page</p>
-      <a href="#about" class="mt-8 inline-block bg-white text-purple-700 font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100">Learn more</a>
+      <img src="img/profile.jpg" alt="profile" class="w-40 h-40 rounded-full mx-auto shadow-lg scroll-reveal reveal-up">
+      <h1 class="text-4xl md:text-6xl font-bold scroll-reveal reveal-up">Anuj <span class="text-yellow-300">Tewari</span></h1>
+      <p class="text-lg md:text-2xl scroll-reveal reveal-up">Head of Research, Google AI Overviews and Search Result Page</p>
+      <a href="#about" class="mt-8 inline-block bg-white text-emerald-700 font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100">Learn more</a>
     </div>
   </header>
 
@@ -62,7 +63,6 @@
         </div>
       </div>
     </section>
-
     <section id="education" class="scroll-reveal">
       <h2 class="text-3xl font-bold mb-4">Education</h2>
       <div class="space-y-6">
@@ -76,7 +76,6 @@
         </div>
       </div>
     </section>
-
     <section id="interests" class="scroll-reveal">
       <h2 class="text-3xl font-bold mb-4">Personal</h2>
       <p class="mb-2">Apart from being a research leader, I also enjoy hiking, photography, reading and Xbox games.</p>
