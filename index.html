@@ -1,152 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anuj Tewari</title>
-  <link rel="stylesheet" href="https://cdn.tailwindcss.com">
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-  <link rel="stylesheet" href="style.css">
-  <style>html{scroll-behavior:smooth}</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anuj Tewari - Computer Scientist & Research Leader</title>
+    <meta name="description" content="Anuj Tewari is a computer scientist with expertise in HCI, NLP, and Education. Currently Head of Research at Google AI Overviews.">
+    
+    <!-- External Libraries -->
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="text-gray-800">
-  <main>
-    <!-- Hero -->
-    <section id="hero" class="min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-b from-blue-800 via-blue-600 to-blue-400 text-white">
-      <img src="img/profile.jpg" alt="Anuj Tewari" class="w-40 h-40 rounded-full shadow-lg mb-6" data-aos="zoom-in">
-      <h1 class="text-5xl font-bold mb-2" data-aos="fade-up">Anuj Tewari</h1>
-      <p class="text-xl mb-6" data-aos="fade-up" data-aos-delay="100">Head of Research, Google AI Overviews and Search Result Page</p>
-      <a href="mailto:anujtewari17@gmail.com" class="bg-blue-600 text-white px-8 py-3 rounded shadow hover:bg-blue-700" data-aos="fade-up" data-aos-delay="200">Email Me</a>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="py-24 px-4">
-      <div class="max-w-4xl mx-auto" data-aos="fade-up">
-        <h2 class="text-4xl font-bold text-blue-600 mb-6">About</h2>
-        <p class="text-lg leading-relaxed mb-4">I am a computer scientist by training, with a cross-disciplinary background in Human Computer Interaction, Natural Language Processing and Education. I am experienced in building product research teams that use qualitative and quantitative data to generate actionable insights and influence product direction. Thanks for visiting my homepage!</p>
-        <p class="text-lg leading-relaxed">Contact: first name followed by last name followed by the number 17 at Gmail</p>
-      </div>
-    </section>
-
-    <!-- Experience -->
-    <section id="experience" class="py-24 bg-gray-50 px-4">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-4xl font-bold text-blue-600 mb-12" data-aos="fade-up">Experience</h2>
-        <div class="timeline space-y-12">
-          <div class="timeline-item md:flex md:justify-between md:items-center" data-aos="fade-right">
-            <div class="md:w-5/12 md:text-right md:pr-8">
-              <h3 class="font-semibold">Head of Research, Google</h3>
-              <p class="text-sm text-gray-500">Jun 2022 – Present</p>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" x-data="{ open: false }">
+        <div class="container nav__container">
+            <div class="nav__brand">
+                <a href="#home" class="nav__logo">Anuj Tewari</a>
             </div>
-            <div class="md:w-5/12"></div>
-          </div>
-          <div class="timeline-item md:flex md:justify-between md:items-center" data-aos="fade-left">
-            <div class="md:w-5/12"></div>
-            <div class="md:w-5/12 md:pl-8">
-              <h3 class="font-semibold">Research Manager, Facebook</h3>
-              <p class="text-sm text-gray-500">Nov 2018 – Jun 2022</p>
-            </div>
-          </div>
-          <div class="timeline-item md:flex md:justify-between md:items-center" data-aos="fade-right">
-            <div class="md:w-5/12 md:text-right md:pr-8">
-              <h3 class="font-semibold">Director, Salesforce</h3>
-              <p class="text-sm text-gray-500">Nov 2017 – Nov 2018</p>
-            </div>
-            <div class="md:w-5/12"></div>
-          </div>
-          <div class="timeline-item md:flex md:justify-between md:items-center" data-aos="fade-left">
-            <div class="md:w-5/12"></div>
-            <div class="md:w-5/12 md:pl-8">
-              <h3 class="font-semibold">Researcher, Uber</h3>
-              <p class="text-sm text-gray-500">Jul 2015 – Nov 2017</p>
-            </div>
-          </div>
-          <div class="timeline-item md:flex md:justify-between md:items-center" data-aos="fade-right">
-            <div class="md:w-5/12 md:text-right md:pr-8">
-              <h3 class="font-semibold">Lead Engineer, GE</h3>
-              <p class="text-sm text-gray-500">Jul 2013 – Jul 2015</p>
-            </div>
-            <div class="md:w-5/12"></div>
-          </div>
+            
+            <!-- Desktop Menu -->
+            <ul class="nav__menu nav__menu--desktop">
+                <li><a href="#home" class="nav__link">Home</a></li>
+                <li><a href="#about" class="nav__link">About</a></li>
+                <li><a href="#experience" class="nav__link">Experience</a></li>
+                <li><a href="#education" class="nav__link">Education</a></li>
+                <li><a href="#personal" class="nav__link">Personal</a></li>
+                <li><a href="#awards" class="nav__link">Awards</a></li>
+            </ul>
+            
+            <!-- Mobile Menu Button -->
+            <button 
+                class="nav__toggle" 
+                @click="open = !open"
+                :class="{ 'nav__toggle--active': open }"
+                aria-label="Toggle navigation menu"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <!-- Mobile Menu -->
+            <ul class="nav__menu nav__menu--mobile" :class="{ 'nav__menu--open': open }">
+                <li><a href="#home" class="nav__link" @click="open = false">Home</a></li>
+                <li><a href="#about" class="nav__link" @click="open = false">About</a></li>
+                <li><a href="#experience" class="nav__link" @click="open = false">Experience</a></li>
+                <li><a href="#education" class="nav__link" @click="open = false">Education</a></li>
+                <li><a href="#personal" class="nav__link" @click="open = false">Personal</a></li>
+                <li><a href="#awards" class="nav__link" @click="open = false">Awards</a></li>
+            </ul>
         </div>
-      </div>
-    </section>
+    </nav>
 
-    <!-- Education -->
-    <section id="education" class="py-24 px-4">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-4xl font-bold text-blue-600 mb-12" data-aos="fade-up">Education</h2>
-        <div class="timeline space-y-12">
-          <div class="timeline-item md:flex md:justify-between md:items-center" data-aos="fade-left">
-            <div class="md:w-5/12"></div>
-            <div class="md:w-5/12 md:pl-8">
-              <h3 class="font-semibold">PhD – UC Berkeley, Computer Science</h3>
-              <p class="text-sm text-gray-500">2008–2013</p>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero__background"></div>
+            <div class="container hero__container">
+                <div class="hero__content">
+                    <div class="hero__text">
+                        <h1 class="hero__title">Anuj Tewari</h1>
+                        <p class="hero__subtitle">Head of Research, Google AI Overviews and Search Result Page</p>
+                        <p class="hero__description">Computer Scientist • HCI Researcher • Product Research Leader</p>
+                        <div class="hero__actions">
+                            <a href="#about" class="btn btn--primary btn--lg">Learn More</a>
+                            <a href="#experience" class="btn btn--outline btn--lg">Experience</a>
+                        </div>
+                    </div>
+                    <div class="hero__image">
+                        <div class="hero__image-container">
+                            <img src="img/profile.jpg" alt="Anuj Tewari" class="hero__img">
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="timeline-item md:flex md:justify-between md:items-center" data-aos="fade-right">
-            <div class="md:w-5/12 md:text-right md:pr-8">
-              <h3 class="font-semibold">BTech – DA-IICT, ICT</h3>
-              <p class="text-sm text-gray-500">2004–2008</p>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">About Me</h2>
+                </div>
+                <div class="about__content">
+                    <p class="about__text">
+                        I am a computer scientist by training, with a cross disciplinary background in Human Computer Interaction, Natural Language Processing and Education. I am experienced in building product research teams that use qualitative and quantitative data to generate actionable insights and influence product direction. Thanks for visiting my homepage!
+                    </p>
+                    <div class="contact__info">
+                        <h3 class="contact__title">Get in Touch</h3>
+                        <p class="contact__text">Contact: first name followed by last name followed by the number 17 at Gmail</p>
+                    </div>
+                </div>
             </div>
-            <div class="md:w-5/12"></div>
-          </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section section--alternate">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Professional Experience</h2>
+                </div>
+                <div class="timeline">
+                    <div class="timeline__item">
+                        <div class="timeline__content">
+                            <h3 class="timeline__title">Head of Research</h3>
+                            <h4 class="timeline__company">Google AI Overviews and Search Result Page</h4>
+                            <p class="timeline__period">Jun 2022 - Present</p>
+                        </div>
+                    </div>
+                    <div class="timeline__item">
+                        <div class="timeline__content">
+                            <h3 class="timeline__title">Research Manager</h3>
+                            <h4 class="timeline__company">Facebook</h4>
+                            <p class="timeline__period">Nov 2018 - Jun 2022</p>
+                        </div>
+                    </div>
+                    <div class="timeline__item">
+                        <div class="timeline__content">
+                            <h3 class="timeline__title">Director, User Research and Analytics</h3>
+                            <h4 class="timeline__company">Salesforce</h4>
+                            <p class="timeline__period">Nov 2017 - Nov 2018</p>
+                        </div>
+                    </div>
+                    <div class="timeline__item">
+                        <div class="timeline__content">
+                            <h3 class="timeline__title">Researcher & Research Manager</h3>
+                            <h4 class="timeline__company">Uber</h4>
+                            <p class="timeline__period">July 2015 - Nov 2017</p>
+                        </div>
+                    </div>
+                    <div class="timeline__item">
+                        <div class="timeline__content">
+                            <h3 class="timeline__title">Researcher & Lead Engineer</h3>
+                            <h4 class="timeline__company">General Electric</h4>
+                            <p class="timeline__period">July 2013 - July 2015</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Education</h2>
+                </div>
+                <div class="education__grid">
+                    <div class="card education__card">
+                        <div class="card__body">
+                            <h3 class="education__degree">Doctor of Philosophy</h3>
+                            <h4 class="education__field">Computer Science</h4>
+                            <p class="education__institution">University of California Berkeley</p>
+                            <p class="education__period">August 2008 - May 2013</p>
+                        </div>
+                    </div>
+                    <div class="card education__card">
+                        <div class="card__body">
+                            <h3 class="education__degree">Bachelor of Technology</h3>
+                            <h4 class="education__field">Information and Communication Technology</h4>
+                            <p class="education__institution">Dhirubhai Ambani Institute of Information and Communication Technology</p>
+                            <p class="education__period">August 2004 - May 2008</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personal Section -->
+        <section id="personal" class="section section--alternate">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Personal Life</h2>
+                </div>
+                <div class="personal__content">
+                    <div class="personal__item">
+                        <h3 class="personal__subtitle">Hobbies & Interests</h3>
+                        <div class="hobbies__list">
+                            <span class="status status--info">Hiking</span>
+                            <span class="status status--info">Photography</span>
+                            <span class="status status--info">Reading</span>
+                            <span class="status status--info">Xbox Games</span>
+                        </div>
+                    </div>
+                    <div class="personal__item">
+                        <h3 class="personal__subtitle">Family</h3>
+                        <p class="personal__text">
+                            Outside of work, most often I can be found hanging out with my wife Devanshi, our kids (Parth and Anya) and our dog Milo.
+                        </p>
+                    </div>
+                    <div class="personal__item">
+                        <h3 class="personal__subtitle">Academic Connection</h3>
+                        <p class="personal__text">
+                            My brother Ambuj Tewari is a Professor in Statistics at University of Michigan, Ann Arbor.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awards Section -->
+        <section id="awards" class="section">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Awards & Memberships</h2>
+                </div>
+                <div class="awards__grid">
+                    <div class="award__item">
+                        <div class="award__content">
+                            <h3 class="award__title">Sigma Xi Member</h3>
+                            <p class="award__date">Since 2014</p>
+                        </div>
+                    </div>
+                    <div class="award__item">
+                        <div class="award__content">
+                            <h3 class="award__title">ACM SIGCHI Member</h3>
+                            <p class="award__date">Since 2010</p>
+                        </div>
+                    </div>
+                    <div class="award__item">
+                        <div class="award__content">
+                            <h3 class="award__title">Samuel Silver Memorial Award</h3>
+                        </div>
+                    </div>
+                    <div class="award__item">
+                        <div class="award__content">
+                            <h3 class="award__title">Big Ideas@Berkeley Winner</h3>
+                        </div>
+                    </div>
+                    <div class="award__item">
+                        <div class="award__content">
+                            <h3 class="award__title">Qualcomm Innovation Fellowship Finalist</h3>
+                        </div>
+                    </div>
+                    <div class="award__item">
+                        <div class="award__content">
+                            <h3 class="award__title">ACM CHI Best Paper Honorable Mention Winner</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer__text">© 2025 Anuj Tewari. All rights reserved.</p>
         </div>
-      </div>
-    </section>
+    </footer>
 
-    <!-- Personal -->
-    <section id="personal" class="py-24 bg-gray-50 px-4">
-      <div class="max-w-4xl mx-auto" data-aos="fade-up">
-        <h2 class="text-4xl font-bold text-blue-600 mb-6">Personal</h2>
-        <p class="text-lg leading-relaxed mb-4">Outside of work, I enjoy hiking, photography, reading, and playing video games. I live with my wife Devanshi, our kids Parth and Anya, and our dog Milo.</p>
-        <p class="text-lg leading-relaxed">My brother <a href="https://ambujtewari.github.io/" class="text-blue-600 underline">Ambuj Tewari</a> is a professor in Statistics at the University of Michigan, Ann Arbor.</p>
-      </div>
-    </section>
-
-    <!-- Awards -->
-    <section id="awards" class="py-24 px-4">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-4xl font-bold text-blue-600 mb-12" data-aos="fade-up">Awards</h2>
-        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          <div class="bg-white p-6 shadow rounded" data-aos="zoom-in">
-            <p class="font-medium">Sigma Xi Member</p>
-            <p class="text-gray-600">Since 2014</p>
-          </div>
-          <div class="bg-white p-6 shadow rounded" data-aos="zoom-in" data-aos-delay="100">
-            <p class="font-medium">ACM SIGCHI Member</p>
-            <p class="text-gray-600">Since 2010</p>
-          </div>
-          <div class="bg-white p-6 shadow rounded" data-aos="zoom-in" data-aos-delay="200">
-            <p class="font-medium">Samuel Silver Memorial Award</p>
-          </div>
-          <div class="bg-white p-6 shadow rounded" data-aos="zoom-in" data-aos-delay="300">
-            <p class="font-medium">Big Ideas@Berkeley Winner</p>
-          </div>
-          <div class="bg-white p-6 shadow rounded" data-aos="zoom-in" data-aos-delay="400">
-            <p class="font-medium">Qualcomm Innovation Fellowship Finalist</p>
-          </div>
-          <div class="bg-white p-6 shadow rounded" data-aos="zoom-in" data-aos-delay="500">
-            <p class="font-medium">ACM CHI Best Paper Honorable Mention Winner</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="py-24 bg-gray-50 px-4">
-      <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
-        <h2 class="text-4xl font-bold text-blue-600 mb-6">Let’s Connect</h2>
-        <p class="text-lg mb-6">Email me: anujtewari17@gmail.com</p>
-        <a href="mailto:anujtewari17@gmail.com" class="bg-blue-600 text-white px-8 py-3 rounded shadow hover:bg-blue-700">Email Me</a>
-      </div>
-    </section>
-  </main>
-  <footer class="text-center py-6 text-gray-500">
-    © Anuj Tewari
-  </footer>
-
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init({ once: true });</script>
+    <script src="app.js"></script>
 </body>
 </html>
