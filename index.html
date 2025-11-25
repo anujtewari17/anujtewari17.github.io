@@ -1,258 +1,519 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anuj Tewari - Computer Scientist & Research Leader</title>
-    <meta name="description" content="Anuj Tewari is a computer scientist with expertise in HCI, NLP, and Education. Currently Head of Research at Google AI Overviews.">
-    
-    <!-- External Libraries -->
-    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Anuj Tewari – Research Leader</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Anuj Tewari – Computer scientist, HCI researcher, and product research leader working on Google Search and AI."
+  />
+
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS (Animate On Scroll) -->
+  <link
+    href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+    rel="stylesheet"
+  />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              300: '#93c5fd',
+              400: '#60a5fa',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            },
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="nav" x-data="{ open: false }">
-        <div class="container nav__container">
-            <div class="nav__brand">
-                <a href="#home" class="nav__logo">Anuj Tewari</a>
+<body class="bg-slate-950 text-slate-100 antialiased">
+  <!-- Top bar -->
+  <header
+    class="sticky top-0 z-40 border-b border-slate-800/60 bg-slate-950/85 backdrop-blur"
+  >
+    <div
+      class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
+    >
+      <a href="#home" class="text-sm font-semibold tracking-tight">
+        <span class="text-primary-400">Anuj</span> Tewari
+      </a>
+      <nav class="hidden gap-6 text-xs font-medium text-slate-300 sm:flex">
+        <a href="#about" class="hover:text-primary-300">About</a>
+        <a href="#experience" class="hover:text-primary-300">Experience</a>
+        <a href="#education" class="hover:text-primary-300">Education</a>
+        <a href="#personal" class="hover:text-primary-300">Personal</a>
+        <a href="#awards" class="hover:text-primary-300">Awards</a>
+      </nav>
+      <a
+        href="#contact"
+        class="hidden rounded-full bg-primary-500 px-4 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-primary-400 sm:inline-flex"
+      >
+        Get in touch
+      </a>
+    </div>
+  </header>
+
+  <!-- Main content wrapper -->
+  <main id="home" class="mx-auto max-w-5xl px-4 pb-16 pt-10 sm:px-6 lg:px-8">
+    <!-- Hero -->
+    <section
+      class="grid gap-10 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] md:items-center"
+    >
+      <div data-aos="fade-up">
+        <p class="text-xs font-semibold uppercase tracking-[0.25em] text-primary-300">
+          Research • Product • AI
+        </p>
+        <h1 class="mt-4 text-3xl font-semibold tracking-tight text-slate-50 sm:text-4xl">
+          Anuj Tewari
+        </h1>
+        <p class="mt-2 text-sm font-semibold text-primary-200">
+          Head of Research, Google AI Overviews and Search Result Page
+        </p>
+        <p class="mt-3 max-w-xl text-sm leading-relaxed text-slate-300">
+          I am a computer scientist by training with a cross-disciplinary background
+          in Human–Computer Interaction, Natural Language Processing, and Education.
+          I build and lead product research teams that combine qualitative and
+          quantitative methods to shape large-scale experiences in search and AI.
+        </p>
+
+        <div class="mt-6 flex flex-wrap items-center gap-3">
+          <a
+            href="#experience"
+            class="rounded-full bg-primary-500 px-4 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-primary-400"
+          >
+            View experience
+          </a>
+          <a
+            href="#about"
+            class="text-xs font-medium text-slate-300 hover:text-primary-200"
+          >
+            Learn more about my work →
+          </a>
+        </div>
+
+        <div class="mt-6 text-xs text-slate-400">
+          Contact: <span class="font-mono">first name + last name + 17 @ gmail</span>
+        </div>
+      </div>
+
+      <!-- Profile image -->
+      <div
+        class="flex justify-center md:justify-end"
+        data-aos="fade-left"
+        data-aos-delay="150"
+      >
+        <div
+          class="relative h-40 w-40 overflow-hidden rounded-3xl border border-slate-800/70 bg-slate-900/60 shadow-2xl shadow-primary-900/40 sm:h-48 sm:w-48"
+        >
+          <!-- Update src path/filename to whatever exists under img/ -->
+          <img
+            src="img/anuj.jpg"
+            alt="Portrait of Anuj Tewari"
+            class="h-full w-full object-cover"
+          />
+          <div
+            class="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent"
+          ></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="mt-16 border-t border-slate-800/60 pt-10">
+      <h2
+        class="text-lg font-semibold tracking-tight text-slate-50"
+        data-aos="fade-up"
+      >
+        About Me
+      </h2>
+      <p
+        class="mt-3 max-w-3xl text-sm leading-relaxed text-slate-300"
+        data-aos="fade-up"
+        data-aos-delay="80"
+      >
+        My work sits at the intersection of human behavior, large-scale systems,
+        and practical product decisions. I focus on how people discover, interpret,
+        and trust information in modern search experiences, especially as AI
+        generated answers become a primary entry point.
+      </p>
+      <p
+        class="mt-3 max-w-3xl text-sm leading-relaxed text-slate-300"
+        data-aos="fade-up"
+        data-aos-delay="140"
+      >
+        Over the years I have led teams across industry to design research programs
+        that are rigorous enough to publish and concrete enough to influence roadmaps,
+        launch decisions, and product narratives.
+      </p>
+    </section>
+
+    <!-- Experience -->
+    <section
+      id="experience"
+      class="mt-16 border-t border-slate-800/60 pt-10"
+    >
+      <h2
+        class="text-lg font-semibold tracking-tight text-slate-50"
+        data-aos="fade-up"
+      >
+        Professional Experience
+      </h2>
+
+      <div class="mt-6 space-y-6">
+        <!-- Google -->
+        <article
+          class="rounded-xl border border-slate-800/80 bg-slate-900/40 p-5"
+          data-aos="fade-up"
+          data-aos-delay="40"
+        >
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <h3 class="text-sm font-semibold text-slate-50">
+                Head of Research
+              </h3>
+              <p class="text-xs font-medium text-primary-200">
+                Google – AI Overviews and Search Result Page
+              </p>
             </div>
-            
-            <!-- Desktop Menu -->
-            <ul class="nav__menu nav__menu--desktop">
-                <li><a href="#home" class="nav__link">Home</a></li>
-                <li><a href="#about" class="nav__link">About</a></li>
-                <li><a href="#experience" class="nav__link">Experience</a></li>
-                <li><a href="#education" class="nav__link">Education</a></li>
-                <li><a href="#personal" class="nav__link">Personal</a></li>
-                <li><a href="#awards" class="nav__link">Awards</a></li>
-            </ul>
-            
-            <!-- Mobile Menu Button -->
-            <button 
-                class="nav__toggle" 
-                @click="open = !open"
-                :class="{ 'nav__toggle--active': open }"
-                aria-label="Toggle navigation menu"
+            <p class="text-[11px] text-slate-400">
+              Jun 2022 – Present
+            </p>
+          </div>
+          <p class="mt-3 text-xs leading-relaxed text-slate-300">
+            Leading research for core Google Search surfaces during one of the
+            largest shifts in search behavior: the introduction of AI generated
+            overviews and conversational experiences. Work spans user intent
+            modeling, trust and safety considerations, cross-surface navigation,
+            and the measurement of long-term impact.
+          </p>
+        </article>
+
+        <!-- Meta -->
+        <article
+          class="rounded-xl border border-slate-800/80 bg-slate-900/40 p-5"
+          data-aos="fade-up"
+          data-aos-delay="80"
+        >
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <h3 class="text-sm font-semibold text-slate-50">
+                Research Manager
+              </h3>
+              <p class="text-xs font-medium text-primary-200">
+                Facebook
+              </p>
+            </div>
+            <p class="text-[11px] text-slate-400">
+              Nov 2018 – Jun 2022
+            </p>
+          </div>
+          <p class="mt-3 text-xs leading-relaxed text-slate-300">
+            Led research teams focused on feeds, integrity, and emerging product
+            directions, with an emphasis on understanding how people create and
+            consume content at scale while balancing engagement, well-being,
+            and safety.
+          </p>
+        </article>
+
+        <!-- Salesforce -->
+        <article
+          class="rounded-xl border border-slate-800/80 bg-slate-900/40 p-5"
+          data-aos="fade-up"
+          data-aos-delay="120"
+        >
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <h3 class="text-sm font-semibold text-slate-50">
+                Director, User Research and Analytics
+              </h3>
+              <p class="text-xs font-medium text-primary-200">
+                Salesforce
+              </p>
+            </div>
+            <p class="text-[11px] text-slate-400">
+              Nov 2017 – Nov 2018
+            </p>
+          </div>
+          <p class="mt-3 text-xs leading-relaxed text-slate-300">
+            Directed research and analytics for enterprise products, integrating
+            behavioral data with qualitative insights to guide strategy for
+            complex, multi-stakeholder workflows.
+          </p>
+        </article>
+
+        <!-- Uber -->
+        <article
+          class="rounded-xl border border-slate-800/80 bg-slate-900/40 p-5"
+          data-aos="fade-up"
+          data-aos-delay="160"
+        >
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <h3 class="text-sm font-semibold text-slate-50">
+                Researcher &amp; Research Manager
+              </h3>
+              <p class="text-xs font-medium text-primary-200">
+                Uber
+              </p>
+            </div>
+            <p class="text-[11px] text-slate-400">
+              Jul 2015 – Nov 2017
+            </p>
+          </div>
+          <p class="mt-3 text-xs leading-relaxed text-slate-300">
+            Worked across rider, driver, and platform experiences during a period
+            of rapid scale-up, focusing on matching, reliability, and marketplace
+            design questions.
+          </p>
+        </article>
+
+        <!-- GE -->
+        <article
+          class="rounded-xl border border-slate-800/80 bg-slate-900/40 p-5"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <h3 class="text-sm font-semibold text-slate-50">
+                Researcher &amp; Lead Engineer
+              </h3>
+              <p class="text-xs font-medium text-primary-200">
+                General Electric
+              </p>
+            </div>
+            <p class="text-[11px] text-slate-400">
+              Jul 2013 – Jul 2015
+            </p>
+          </div>
+          <p class="mt-3 text-xs leading-relaxed text-slate-300">
+            Designed and built systems at the intersection of machine learning
+            and industrial applications, contributing both research and
+            production engineering.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section
+      id="education"
+      class="mt-16 border-t border-slate-800/60 pt-10"
+    >
+      <h2
+        class="text-lg font-semibold tracking-tight text-slate-50"
+        data-aos="fade-up"
+      >
+        Education
+      </h2>
+
+      <div class="mt-6 grid gap-6 md:grid-cols-2">
+        <article
+          class="rounded-xl border border-slate-800/80 bg-slate-900/40 p-5"
+          data-aos="fade-up"
+          data-aos-delay="40"
+        >
+          <h3 class="text-sm font-semibold text-slate-50">
+            Doctor of Philosophy, Computer Science
+          </h3>
+          <p class="mt-1 text-xs font-medium text-primary-200">
+            University of California, Berkeley
+          </p>
+          <p class="mt-1 text-[11px] text-slate-400">
+            Aug 2008 – May 2013
+          </p>
+        </article>
+
+        <article
+          class="rounded-xl border border-slate-800/80 bg-slate-900/40 p-5"
+          data-aos="fade-up"
+          data-aos-delay="80"
+        >
+          <h3 class="text-sm font-semibold text-slate-50">
+            Bachelor of Technology, Information and Communication Technology
+          </h3>
+          <p class="mt-1 text-xs font-medium text-primary-200">
+            Dhirubhai Ambani Institute of Information and Communication Technology
+          </p>
+          <p class="mt-1 text-[11px] text-slate-400">
+            Aug 2004 – May 2008
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Personal -->
+    <section
+      id="personal"
+      class="mt-16 border-t border-slate-800/60 pt-10"
+    >
+      <h2
+        class="text-lg font-semibold tracking-tight text-slate-50"
+        data-aos="fade-up"
+      >
+        Personal Life
+      </h2>
+
+      <div
+        class="mt-6 grid gap-8 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]"
+      >
+        <div data-aos="fade-up" data-aos-delay="40">
+          <h3 class="text-sm font-semibold text-slate-200">
+            Hobbies &amp; Interests
+          </h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-300">
+            Outside of work I gravitate toward quiet but absorbing activities:
+            hiking, photography, reading, and the occasional Xbox game session.
+            These are the spaces where long-running ideas about systems, people,
+            and products tend to connect.
+          </p>
+
+          <h3 class="mt-5 text-sm font-semibold text-slate-200">
+            Family
+          </h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-300">
+            Most days, the center of gravity is my family. I spend as much time as
+            I can with my wife Devanshi, our kids Parth and Anya, and our dog Milo.
+          </p>
+
+          <h3 class="mt-5 text-sm font-semibold text-slate-200">
+            Academic Connection
+          </h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-300">
+            My brother
+            <a
+              href="https://ambujtewari.github.io/"
+              class="text-primary-300 underline decoration-primary-600/60 underline-offset-2 hover:text-primary-200"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            
-            <!-- Mobile Menu -->
-            <ul class="nav__menu nav__menu--mobile" :class="{ 'nav__menu--open': open }">
-                <li><a href="#home" class="nav__link" @click="open = false">Home</a></li>
-                <li><a href="#about" class="nav__link" @click="open = false">About</a></li>
-                <li><a href="#experience" class="nav__link" @click="open = false">Experience</a></li>
-                <li><a href="#education" class="nav__link" @click="open = false">Education</a></li>
-                <li><a href="#personal" class="nav__link" @click="open = false">Personal</a></li>
-                <li><a href="#awards" class="nav__link" @click="open = false">Awards</a></li>
-            </ul>
+              Ambuj Tewari
+            </a>
+            is a Professor in Statistics at the University of Michigan, Ann Arbor.
+            Our conversations often jump between theory, applications, and what it
+            means to build systems that people genuinely understand.
+          </p>
         </div>
-    </nav>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="hero__background"></div>
-            <div class="container hero__container">
-                <div class="hero__content">
-                    <div class="hero__text">
-                        <h1 class="hero__title">Anuj Tewari</h1>
-                        <p class="hero__subtitle">Head of Research, Google AI Overviews and Search Result Page</p>
-                        <p class="hero__description">Computer Scientist • HCI Researcher • Product Research Leader</p>
-                        <div class="hero__actions">
-                            <a href="#about" class="btn btn--primary btn--lg">Learn More</a>
-                            <a href="#experience" class="btn btn--outline btn--lg">Experience</a>
-                        </div>
-                    </div>
-                    <div class="hero__image">
-                        <div class="hero__image-container">
-                            <img src="img/profile.jpg" alt="Anuj Tewari" class="hero__img">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="section">
-            <div class="container">
-                <div class="section__header">
-                    <h2 class="section__title">About Me</h2>
-                </div>
-                <div class="about__content">
-                    <p class="about__text">
-                        I am a computer scientist by training, with a cross disciplinary background in Human Computer Interaction, Natural Language Processing and Education. I am experienced in building product research teams that use qualitative and quantitative data to generate actionable insights and influence product direction. Thanks for visiting my homepage!
-                    </p>
-                    <div class="contact__info">
-                        <h3 class="contact__title">Get in Touch</h3>
-                        <p class="contact__text">Contact: first name followed by last name followed by the number 17 at Gmail</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience" class="section section--alternate">
-            <div class="container">
-                <div class="section__header">
-                    <h2 class="section__title">Professional Experience</h2>
-                </div>
-                <div class="timeline">
-                    <div class="timeline__item">
-                        <div class="timeline__content">
-                            <h3 class="timeline__title">Head of Research</h3>
-                            <h4 class="timeline__company">Google AI Overviews and Search Result Page</h4>
-                            <p class="timeline__period">Jun 2022 - Present</p>
-                        </div>
-                    </div>
-                    <div class="timeline__item">
-                        <div class="timeline__content">
-                            <h3 class="timeline__title">Research Manager</h3>
-                            <h4 class="timeline__company">Facebook</h4>
-                            <p class="timeline__period">Nov 2018 - Jun 2022</p>
-                        </div>
-                    </div>
-                    <div class="timeline__item">
-                        <div class="timeline__content">
-                            <h3 class="timeline__title">Director, User Research and Analytics</h3>
-                            <h4 class="timeline__company">Salesforce</h4>
-                            <p class="timeline__period">Nov 2017 - Nov 2018</p>
-                        </div>
-                    </div>
-                    <div class="timeline__item">
-                        <div class="timeline__content">
-                            <h3 class="timeline__title">Researcher & Research Manager</h3>
-                            <h4 class="timeline__company">Uber</h4>
-                            <p class="timeline__period">July 2015 - Nov 2017</p>
-                        </div>
-                    </div>
-                    <div class="timeline__item">
-                        <div class="timeline__content">
-                            <h3 class="timeline__title">Researcher & Lead Engineer</h3>
-                            <h4 class="timeline__company">General Electric</h4>
-                            <p class="timeline__period">July 2013 - July 2015</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education" class="section">
-            <div class="container">
-                <div class="section__header">
-                    <h2 class="section__title">Education</h2>
-                </div>
-                <div class="education__grid">
-                    <div class="card education__card">
-                        <div class="card__body">
-                            <h3 class="education__degree">Doctor of Philosophy</h3>
-                            <h4 class="education__field">Computer Science</h4>
-                            <p class="education__institution">University of California Berkeley</p>
-                            <p class="education__period">August 2008 - May 2013</p>
-                        </div>
-                    </div>
-                    <div class="card education__card">
-                        <div class="card__body">
-                            <h3 class="education__degree">Bachelor of Technology</h3>
-                            <h4 class="education__field">Information and Communication Technology</h4>
-                            <p class="education__institution">Dhirubhai Ambani Institute of Information and Communication Technology</p>
-                            <p class="education__period">August 2004 - May 2008</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Personal Section -->
-        <section id="personal" class="section section--alternate">
-            <div class="container">
-                <div class="section__header">
-                    <h2 class="section__title">Personal Life</h2>
-                </div>
-                <div class="personal__content">
-                    <div class="personal__item">
-                        <h3 class="personal__subtitle">Hobbies & Interests</h3>
-                        <div class="hobbies__list">
-                            <span class="status status--info">Hiking</span>
-                            <span class="status status--info">Photography</span>
-                            <span class="status status--info">Reading</span>
-                            <span class="status status--info">Xbox Games</span>
-                        </div>
-                    </div>
-                    <div class="personal__item">
-                        <h3 class="personal__subtitle">Family</h3>
-                        <p class="personal__text">
-                            Outside of work, most often I can be found hanging out with my wife Devanshi, our kids (Parth and Anya) and our dog Milo.
-                        </p>
-                    </div>
-                    <div class="personal__item">
-                        <h3 class="personal__subtitle">Academic Connection</h3>
-                        <p class="personal__text">
-                             My brother <a href="https://ambujtewari.github.io/" target="_blank" rel="noopener noreferrer" class="link">Ambuj Tewari</a> is a Professor in Statistics at University of Michigan, Ann Arbor.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Awards Section -->
-        <section id="awards" class="section">
-            <div class="container">
-                <div class="section__header">
-                    <h2 class="section__title">Awards & Memberships</h2>
-                </div>
-                <div class="awards__grid">
-                    <div class="award__item">
-                        <div class="award__content">
-                            <h3 class="award__title">Sigma Xi Member</h3>
-                            <p class="award__date">Since 2014</p>
-                        </div>
-                    </div>
-                    <div class="award__item">
-                        <div class="award__content">
-                            <h3 class="award__title">ACM SIGCHI Member</h3>
-                            <p class="award__date">Since 2010</p>
-                        </div>
-                    </div>
-                    <div class="award__item">
-                        <div class="award__content">
-                            <h3 class="award__title">Samuel Silver Memorial Award</h3>
-                        </div>
-                    </div>
-                    <div class="award__item">
-                        <div class="award__content">
-                            <h3 class="award__title">Big Ideas@Berkeley Winner</h3>
-                        </div>
-                    </div>
-                    <div class="award__item">
-                        <div class="award__content">
-                            <h3 class="award__title">Qualcomm Innovation Fellowship Finalist</h3>
-                        </div>
-                    </div>
-                    <div class="award__item">
-                        <div class="award__content">
-                            <h3 class="award__title">ACM CHI Best Paper Honorable Mention Winner</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p class="footer__text">© 2025 Anuj Tewari. All rights reserved.</p>
+        <div
+          class="space-y-4 rounded-2xl border border-slate-800/80 bg-slate-900/40 p-5 text-xs text-slate-300"
+          data-aos="fade-left"
+          data-aos-delay="120"
+        >
+          <h3 class="text-sm font-semibold text-slate-100">
+            A few themes I return to
+          </h3>
+          <ul class="mt-2 space-y-2 list-disc list-inside">
+            <li>How people form trust in complex information environments</li>
+            <li>Where qualitative insight and measurement actually meet</li>
+            <li>What responsible AI looks like in everyday search behavior</li>
+          </ul>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <script src="app.js"></script>
+    <!-- Awards -->
+    <section
+      id="awards"
+      class="mt-16 border-t border-slate-800/60 pt-10"
+    >
+      <h2
+        class="text-lg font-semibold tracking-tight text-slate-50"
+        data-aos="fade-up"
+      >
+        Awards &amp; Memberships
+      </h2>
+
+      <div
+        class="mt-6 grid gap-4 text-sm text-slate-200 sm:grid-cols-2"
+        data-aos="fade-up"
+        data-aos-delay="60"
+      >
+        <div class="space-y-1">
+          <p class="font-medium">Sigma Xi Member</p>
+          <p class="text-xs text-slate-400">Since 2014</p>
+        </div>
+        <div class="space-y-1">
+          <p class="font-medium">ACM SIGCHI Member</p>
+          <p class="text-xs text-slate-400">Since 2010</p>
+        </div>
+        <div class="space-y-1">
+          <p class="font-medium">Samuel Silver Memorial Award</p>
+        </div>
+        <div class="space-y-1">
+          <p class="font-medium">Big Ideas @ Berkeley Winner</p>
+        </div>
+        <div class="space-y-1">
+          <p class="font-medium">Qualcomm Innovation Fellowship Finalist</p>
+        </div>
+        <div class="space-y-1">
+          <p class="font-medium">ACM CHI Best Paper Honorable Mention</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / footer -->
+    <section
+      id="contact"
+      class="mt-16 border-t border-slate-800/60 pt-10"
+    >
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div data-aos="fade-up">
+          <h2 class="text-lg font-semibold tracking-tight text-slate-50">
+            Get in Touch
+          </h2>
+          <p class="mt-2 text-sm text-slate-300 max-w-xl">
+            For collaboration, speaking, or research discussions, the easiest way
+            to reach me is by email:
+            <span class="font-mono text-primary-200">
+              first name + last name + 17 @ gmail
+            </span>
+          </p>
+        </div>
+        <div
+          class="text-xs text-slate-500"
+          data-aos="fade-up"
+          data-aos-delay="80"
+        >
+          © <span id="year"></span> Anuj Tewari. All rights reserved.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- AOS + small JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true,
+      duration: 600,
+      easing: 'ease-out-quart',
+    });
+
+    // Set current year in footer
+    document.getElementById('year').textContent =
+      new Date().getFullYear();
+  </script>
 </body>
 </html>
