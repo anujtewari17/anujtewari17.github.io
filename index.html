@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <title>Anuj Tewari – Research Leader</title>
@@ -9,32 +9,38 @@
     content="Anuj Tewari – Computer scientist, HCI researcher, and product research leader working on bringing AI to Google Search."
   />
 
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
   <!-- Tailwind via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- AOS (Animate On Scroll) -->
-  <link
-    href="https://unpkg.com/aos@2.3.1/dist/aos.css"
-    rel="stylesheet"
-  />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
   <script>
     tailwind.config = {
       theme: {
         extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+          },
           colors: {
+            slate: {
+              850: '#151e2e',
+              900: '#0f172a',
+              950: '#020617',
+            },
             primary: {
-              50: '#eff6ff',
-              100: '#dbeafe',
-              200: '#bfdbfe',
-              300: '#93c5fd',
               400: '#60a5fa',
               500: '#3b82f6',
-              600: '#2563eb',
-              700: '#1d4ed8',
-              800: '#1e40af',
-              900: '#1e3a8a',
             },
+          },
+          backgroundImage: {
+            'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
           },
         },
       },
@@ -42,32 +48,64 @@
   </script>
 
   <style>
-    html {
-      scroll-behavior: smooth;
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #020617;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #475569;
+    }
+    
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease;
+    }
+    .glass-card:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(59, 130, 246, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
+    }
+    
+    .gradient-text {
+      background: linear-gradient(to right, #60a5fa, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 antialiased">
+<body class="bg-slate-950 text-slate-300 antialiased selection:bg-primary-500/30 selection:text-white">
+  
+  <!-- Background Glow Effect -->
+  <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+    <div class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-primary-500/10 blur-[100px]"></div>
+    <div class="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-purple-500/10 blur-[100px]"></div>
+  </div>
+
   <!-- Top bar -->
-  <header
-    class="sticky top-0 z-40 border-b border-slate-800/60 bg-slate-950/85 backdrop-blur"
-  >
-    <div
-      class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
-    >
-      <a href="#home" class="text-sm font-semibold tracking-tight">
-        <span class="text-primary-400">Anuj</span> Tewari
+  <header class="sticky top-0 z-50 border-b border-white/5 bg-slate-950/80 backdrop-blur-md">
+    <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+      <a href="#home" class="font-display text-lg font-bold tracking-tight text-white hover:opacity-80 transition-opacity">
+        Anuj<span class="text-primary-400">.</span>
       </a>
-      <nav class="hidden gap-6 text-xs font-medium text-slate-300 sm:flex">
-        <a href="#about" class="hover:text-primary-300">About</a>
-        <a href="#experience" class="hover:text-primary-300">Experience</a>
-        <a href="#education" class="hover:text-primary-300">Education</a>
-        <a href="#personal" class="hover:text-primary-300">Personal</a>
-        <a href="#awards" class="hover:text-primary-300">Awards</a>
+      <nav class="hidden gap-8 text-sm font-medium text-slate-400 sm:flex">
+        <a href="#about" class="hover:text-white transition-colors">About</a>
+        <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+        <a href="#education" class="hover:text-white transition-colors">Education</a>
+        <a href="#personal" class="hover:text-white transition-colors">Personal</a>
       </nav>
       <a
         href="#contact"
-        class="hidden rounded-full bg-primary-500 px-4 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-primary-400 sm:inline-flex"
+        class="hidden rounded-full border border-white/10 bg-white/5 px-5 py-2 text-xs font-semibold text-white transition-all hover:bg-white/10 hover:scale-105 sm:inline-flex"
       >
         Get in touch
       </a>
@@ -75,429 +113,315 @@
   </header>
 
   <!-- Main content wrapper -->
-  <main id="home" class="mx-auto max-w-5xl px-4 pb-16 pt-10 sm:px-6 lg:px-8">
+  <main id="home" class="mx-auto max-w-5xl px-4 pb-20 pt-16 sm:px-6 lg:px-8">
     <!-- Hero -->
-    <section
-      class="grid gap-10 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] md:items-center"
-    >
-      <div data-aos="fade-up">
-        <p class="text-xs font-semibold uppercase tracking-[0.25em] text-primary-300">
-          Research • Product • AI
-        </p>
-        <h1 class="mt-4 text-3xl font-semibold tracking-tight text-slate-50 sm:text-4xl">
-          Anuj Tewari
+    <section class="grid gap-12 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] md:items-center min-h-[60vh]">
+      <div data-aos="fade-up" data-aos-duration="1000">
+        <div class="inline-flex items-center gap-2 rounded-full border border-primary-500/30 bg-primary-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-400 mb-6">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+          </span>
+          Research Leader
+        </div>
+        
+        <h1 class="font-display text-4xl font-bold tracking-tight text-white sm:text-6xl mb-4 leading-tight">
+          Hi, I'm <span class="gradient-text">Anuj Tewari</span>
         </h1>
-        <p class="mt-2 text-sm font-semibold text-primary-200">
+        
+        <p class="text-lg font-medium text-white/90 mb-4">
           Head of Research, Google AI Overviews and AI Mode
         </p>
-        <p class="mt-3 max-w-xl text-sm leading-relaxed text-slate-300">
-          I am a computer scientist by training with a cross-disciplinary background
-          in Human–Computer Interaction, Natural Language Processing, and Education.
-          I build and lead product research teams that combine qualitative and
-          quantitative methods to shape large-scale experiences in search and AI.
+        
+        <p class="max-w-xl text-base leading-relaxed text-slate-400 mb-8">
+          I am a computer scientist and product research leader bridging the gap between <strong class="text-slate-200">Human–Computer Interaction</strong> and <strong class="text-slate-200">AI</strong>. I lead teams that shape large-scale search experiences through rigorous qualitative and quantitative insights.
         </p>
 
-        <div class="mt-6 flex flex-wrap items-center gap-3">
+        <div class="flex flex-wrap items-center gap-4">
           <a
             href="#experience"
-            class="rounded-full bg-primary-500 px-4 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-primary-400"
+            class="rounded-full bg-white text-slate-950 px-6 py-3 text-sm font-bold shadow-lg shadow-white/10 hover:bg-slate-200 transition-colors"
           >
-            View experience
+            View Experience
           </a>
           <a
             href="#about"
-            class="text-xs font-medium text-slate-300 hover:text-primary-200"
+            class="group flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-white hover:bg-white/10 transition-all"
           >
-            Learn more about my work →
+            More about me 
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </a>
-        </div>
-
-        <div class="mt-6 text-xs text-slate-400">
-          Contact: <span class="font-mono">first name + last name + 17 @ gmail</span>
         </div>
       </div>
 
       <!-- Profile image -->
-      <div
-        class="flex justify-center md:justify-end"
-        data-aos="fade-left"
-        data-aos-delay="150"
-      >
-        <div
-          class="relative h-40 w-40 overflow-hidden rounded-3xl border border-slate-800/70 bg-slate-900/60 shadow-2xl shadow-primary-900/40 sm:h-48 sm:w-48"
-        >
-          <!-- Update src path/filename to whatever exists under img/ -->
+      <div class="flex justify-center md:justify-end relative" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+        <!-- Decorative blob behind image -->
+        <div class="absolute inset-0 bg-gradient-to-tr from-primary-500/20 to-purple-500/20 blur-2xl rounded-full transform scale-90 translate-y-4"></div>
+        
+        <div class="relative h-64 w-64 md:h-80 md:w-80 overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900 shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500">
           <img
             src="img/profile.jpg"
             alt="Portrait of Anuj Tewari"
             class="h-full w-full object-cover"
           />
-          <div
-            class="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent"
-          ></div>
+          <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
         </div>
       </div>
     </section>
 
     <!-- About -->
-    <section id="about" class="mt-16 border-t border-slate-800/60 pt-10">
-      <h2
-        class="text-lg font-semibold tracking-tight text-slate-50"
-        data-aos="fade-up"
-      >
-        About Me
-      </h2>
-      <p
-        class="mt-3 max-w-3xl text-sm leading-relaxed text-slate-300"
-        data-aos="fade-up"
-        data-aos-delay="80"
-      >
-        My work sits at the intersection of human behavior, large-scale systems,
-        and practical product decisions. I focus on how people discover, interpret,
-        and trust information in modern search experiences, especially as AI
-        generated answers become a primary entry point.
-      </p>
-      <p
-        class="mt-3 max-w-3xl text-sm leading-relaxed text-slate-300"
-        data-aos="fade-up"
-        data-aos-delay="140"
-      >
-        Over the years I have led teams across industry to design research programs
-        that are rigorous enough to publish and concrete enough to influence roadmaps,
-        launch decisions, and product narratives.
-      </p>
+    <section id="about" class="mt-24 pt-10">
+      <div class="border-l-2 border-primary-500/50 pl-6" data-aos="fade-up">
+        <h2 class="font-display text-2xl font-bold text-white mb-6">About Me</h2>
+        <div class="space-y-4 text-slate-300 leading-relaxed max-w-3xl">
+          <p>
+            My work sits at the intersection of human behavior, large-scale systems, and practical product decisions. I focus on how people discover, interpret, and trust information in modern search experiences, especially as AI generated answers become a primary entry point.
+          </p>
+          <p>
+            Over the years I have led teams across industry to design research programs that are rigorous enough to publish and concrete enough to influence roadmaps, launch decisions, and product narratives.
+          </p>
+        </div>
+      </div>
     </section>
 
     <!-- Experience -->
-    <section
-      id="experience"
-      class="mt-16 border-t border-slate-800/60 pt-10"
-    >
-      <h2
-        class="text-lg font-semibold tracking-tight text-slate-50"
-        data-aos="fade-up"
-      >
-        Professional Experience
-      </h2>
+    <section id="experience" class="mt-24 pt-10">
+      <div class="flex items-center gap-4 mb-10" data-aos="fade-up">
+        <h2 class="font-display text-2xl font-bold text-white">Professional Experience</h2>
+        <div class="h-px bg-white/10 flex-grow"></div>
+      </div>
 
-      <div class="mt-6 space-y-6">
+      <div class="relative space-y-8 pl-4 md:pl-0">
+        <!-- Vertical Line -->
+        <div class="absolute left-[27px] top-4 bottom-4 w-px bg-white/10 hidden md:block"></div>
+
         <!-- Google -->
-        <article
-          class="rounded-xl border border-slate-800/80 bg-slate-900/40 p-5"
-          data-aos="fade-up"
-          data-aos-delay="40"
-        >
-          <div class="flex flex-wrap items-center justify-between gap-2">
-            <div>
-              <h3 class="text-sm font-semibold text-slate-50">
-                Head of Research
-              </h3>
-              <p class="text-xs font-medium text-primary-200">
-                Google – AI Overviews and AI Mode
-              </p>
+        <article class="relative md:pl-16 group" data-aos="fade-up" data-aos-delay="100">
+          <!-- Timeline Dot -->
+          <div class="absolute left-[20px] top-6 h-4 w-4 rounded-full border-2 border-primary-500 bg-slate-950 group-hover:bg-primary-500 transition-colors hidden md:block z-10"></div>
+          
+          <div class="glass-card rounded-2xl p-6 md:p-8">
+            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
+              <div>
+                <h3 class="font-display text-xl font-bold text-white group-hover:text-primary-400 transition-colors">Head of Research</h3>
+                <p class="text-sm font-medium text-primary-400">Google – AI Overviews and AI Mode</p>
+              </div>
+              <span class="inline-flex items-center rounded-md bg-white/5 px-2 py-1 text-xs font-medium text-slate-400 ring-1 ring-inset ring-white/10">Jun 2022 – Present</span>
             </div>
-            <p class="text-[11px] text-slate-400">
-              Jun 2022 – Present
+            <p class="text-sm leading-relaxed text-slate-300">
+              Leading research for core Google Search surfaces during one of the largest shifts in search behavior: the introduction of AI generated overviews and conversational experiences. Work spans user intent modeling, trust and safety considerations, cross-surface navigation, and the measurement of long-term impact.
             </p>
           </div>
-          <p class="mt-3 text-xs leading-relaxed text-slate-300">
-            Leading research for core Google Search surfaces during one of the
-            largest shifts in search behavior: the introduction of AI generated
-            overviews and conversational experiences. Work spans user intent
-            modeling, trust and safety considerations, cross-surface navigation,
-            and the measurement of long-term impact.
-          </p>
         </article>
 
         <!-- Meta -->
-        <article
-          class="rounded-xl border border-slate-800/80 bg-slate-900/40 p-5"
-          data-aos="fade-up"
-          data-aos-delay="80"
-        >
-          <div class="flex flex-wrap items-center justify-between gap-2">
-            <div>
-              <h3 class="text-sm font-semibold text-slate-50">
-                Research Manager
-              </h3>
-              <p class="text-xs font-medium text-primary-200">
-                Facebook
-              </p>
+        <article class="relative md:pl-16 group" data-aos="fade-up" data-aos-delay="150">
+          <div class="absolute left-[20px] top-6 h-4 w-4 rounded-full border-2 border-slate-700 bg-slate-950 group-hover:border-primary-500 transition-colors hidden md:block z-10"></div>
+          <div class="glass-card rounded-2xl p-6 md:p-8">
+            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
+              <div>
+                <h3 class="font-display text-lg font-bold text-white">Research Manager</h3>
+                <p class="text-sm font-medium text-slate-400">Facebook</p>
+              </div>
+              <span class="inline-flex items-center rounded-md bg-white/5 px-2 py-1 text-xs font-medium text-slate-400 ring-1 ring-inset ring-white/10">Nov 2018 – Jun 2022</span>
             </div>
-            <p class="text-[11px] text-slate-400">
-              Nov 2018 – Jun 2022
+            <p class="text-sm leading-relaxed text-slate-300">
+              Led research teams focused on feeds, integrity, and emerging product directions, with an emphasis on understanding how people create and consume content at scale while balancing engagement, well-being, and safety.
             </p>
           </div>
-          <p class="mt-3 text-xs leading-relaxed text-slate-300">
-            Led research teams focused on feeds, integrity, and emerging product
-            directions, with an emphasis on understanding how people create and
-            consume content at scale while balancing engagement, well-being,
-            and safety.
-          </p>
         </article>
 
         <!-- Salesforce -->
-        <article
-          class="rounded-xl border border-slate-800/80 bg-slate-900/40 p-5"
-          data-aos="fade-up"
-          data-aos-delay="120"
-        >
-          <div class="flex flex-wrap items-center justify-between gap-2">
-            <div>
-              <h3 class="text-sm font-semibold text-slate-50">
-                Director, User Research and Analytics
-              </h3>
-              <p class="text-xs font-medium text-primary-200">
-                Salesforce
-              </p>
+        <article class="relative md:pl-16 group" data-aos="fade-up" data-aos-delay="200">
+          <div class="absolute left-[20px] top-6 h-4 w-4 rounded-full border-2 border-slate-700 bg-slate-950 group-hover:border-primary-500 transition-colors hidden md:block z-10"></div>
+          <div class="glass-card rounded-2xl p-6 md:p-8">
+            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
+              <div>
+                <h3 class="font-display text-lg font-bold text-white">Director, User Research and Analytics</h3>
+                <p class="text-sm font-medium text-slate-400">Salesforce</p>
+              </div>
+              <span class="inline-flex items-center rounded-md bg-white/5 px-2 py-1 text-xs font-medium text-slate-400 ring-1 ring-inset ring-white/10">Nov 2017 – Nov 2018</span>
             </div>
-            <p class="text-[11px] text-slate-400">
-              Nov 2017 – Nov 2018
+            <p class="text-sm leading-relaxed text-slate-300">
+              Directed research and analytics for enterprise products, integrating behavioral data with qualitative insights to guide strategy for complex, multi-stakeholder workflows.
             </p>
           </div>
-          <p class="mt-3 text-xs leading-relaxed text-slate-300">
-            Directed research and analytics for enterprise products, integrating
-            behavioral data with qualitative insights to guide strategy for
-            complex, multi-stakeholder workflows.
-          </p>
         </article>
 
         <!-- Uber -->
-        <article
-          class="rounded-xl border border-slate-800/80 bg-slate-900/40 p-5"
-          data-aos="fade-up"
-          data-aos-delay="160"
-        >
-          <div class="flex flex-wrap items-center justify-between gap-2">
-            <div>
-              <h3 class="text-sm font-semibold text-slate-50">
-                Researcher &amp; Research Manager
-              </h3>
-              <p class="text-xs font-medium text-primary-200">
-                Uber
-              </p>
+        <article class="relative md:pl-16 group" data-aos="fade-up" data-aos-delay="250">
+          <div class="absolute left-[20px] top-6 h-4 w-4 rounded-full border-2 border-slate-700 bg-slate-950 group-hover:border-primary-500 transition-colors hidden md:block z-10"></div>
+          <div class="glass-card rounded-2xl p-6 md:p-8">
+            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
+              <div>
+                <h3 class="font-display text-lg font-bold text-white">Researcher &amp; Research Manager</h3>
+                <p class="text-sm font-medium text-slate-400">Uber</p>
+              </div>
+              <span class="inline-flex items-center rounded-md bg-white/5 px-2 py-1 text-xs font-medium text-slate-400 ring-1 ring-inset ring-white/10">Jul 2015 – Nov 2017</span>
             </div>
-            <p class="text-[11px] text-slate-400">
-              Jul 2015 – Nov 2017
+            <p class="text-sm leading-relaxed text-slate-300">
+              Worked across rider, driver, and platform experiences during a period of rapid scale-up, focusing on matching, reliability, and marketplace design questions.
             </p>
           </div>
-          <p class="mt-3 text-xs leading-relaxed text-slate-300">
-            Worked across rider, driver, and platform experiences during a period
-            of rapid scale-up, focusing on matching, reliability, and marketplace
-            design questions.
-          </p>
         </article>
 
         <!-- GE -->
-        <article
-          class="rounded-xl border border-slate-800/80 bg-slate-900/40 p-5"
-          data-aos="fade-up"
-          data-aos-delay="200"
-        >
-          <div class="flex flex-wrap items-center justify-between gap-2">
-            <div>
-              <h3 class="text-sm font-semibold text-slate-50">
-                Researcher &amp; Lead Engineer
-              </h3>
-              <p class="text-xs font-medium text-primary-200">
-                General Electric
-              </p>
+        <article class="relative md:pl-16 group" data-aos="fade-up" data-aos-delay="300">
+          <div class="absolute left-[20px] top-6 h-4 w-4 rounded-full border-2 border-slate-700 bg-slate-950 group-hover:border-primary-500 transition-colors hidden md:block z-10"></div>
+          <div class="glass-card rounded-2xl p-6 md:p-8">
+            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
+              <div>
+                <h3 class="font-display text-lg font-bold text-white">Researcher &amp; Lead Engineer</h3>
+                <p class="text-sm font-medium text-slate-400">General Electric</p>
+              </div>
+              <span class="inline-flex items-center rounded-md bg-white/5 px-2 py-1 text-xs font-medium text-slate-400 ring-1 ring-inset ring-white/10">Jul 2013 – Jul 2015</span>
             </div>
-            <p class="text-[11px] text-slate-400">
-              Jul 2013 – Jul 2015
+            <p class="text-sm leading-relaxed text-slate-300">
+              Designed and built systems at the intersection of machine learning and industrial applications, contributing both research and production engineering.
             </p>
           </div>
-          <p class="mt-3 text-xs leading-relaxed text-slate-300">
-            Designed and built systems at the intersection of machine learning
-            and industrial applications, contributing both research and
-            production engineering.
-          </p>
         </article>
       </div>
     </section>
 
     <!-- Education -->
-    <section
-      id="education"
-      class="mt-16 border-t border-slate-800/60 pt-10"
-    >
-      <h2
-        class="text-lg font-semibold tracking-tight text-slate-50"
-        data-aos="fade-up"
-      >
-        Education
-      </h2>
+    <section id="education" class="mt-24 pt-10">
+      <div class="flex items-center gap-4 mb-10" data-aos="fade-up">
+        <h2 class="font-display text-2xl font-bold text-white">Education</h2>
+        <div class="h-px bg-white/10 flex-grow"></div>
+      </div>
 
-      <div class="mt-6 grid gap-6 md:grid-cols-2">
-        <article
-          class="rounded-xl border border-slate-800/80 bg-slate-900/40 p-5"
-          data-aos="fade-up"
-          data-aos-delay="40"
-        >
-          <h3 class="text-sm font-semibold text-slate-50">
-            Doctor of Philosophy, Computer Science
-          </h3>
-          <p class="mt-1 text-xs font-medium text-primary-200">
-            University of California, Berkeley
-          </p>
-          <p class="mt-1 text-[11px] text-slate-400">
-            Aug 2008 – May 2013
-          </p>
+      <div class="grid gap-6 md:grid-cols-2">
+        <article class="glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-white/5 text-primary-400">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <h3 class="font-display text-lg font-bold text-white">Doctor of Philosophy, CS</h3>
+          <p class="text-xs text-primary-400 mt-1 mb-2">University of California, Berkeley</p>
+          <p class="text-xs text-slate-500">Aug 2008 – May 2013</p>
         </article>
 
-        <article
-          class="rounded-xl border border-slate-800/80 bg-slate-900/40 p-5"
-          data-aos="fade-up"
-          data-aos-delay="80"
-        >
-          <h3 class="text-sm font-semibold text-slate-50">
-            Bachelor of Technology, Information and Communication Technology
-          </h3>
-          <p class="mt-1 text-xs font-medium text-primary-200">
-            Dhirubhai Ambani Institute of Information and Communication Technology
-          </p>
-          <p class="mt-1 text-[11px] text-slate-400">
-            Aug 2004 – May 2008
-          </p>
+        <article class="glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-white/5 text-primary-400">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 6 8-4 8 4"/><path d="m18 10 4 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8l4-2"/><path d="M14 22v-4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v4"/><path d="M18 5v17"/><path d="M6 5v17"/><circle cx="12" cy="9" r="2"/></svg>
+          </div>
+          <h3 class="font-display text-lg font-bold text-white">Bachelor of Technology, ICT</h3>
+          <p class="text-xs text-primary-400 mt-1 mb-2">Dhirubhai Ambani Institute of ICT</p>
+          <p class="text-xs text-slate-500">Aug 2004 – May 2008</p>
         </article>
       </div>
     </section>
 
-    <!-- Personal -->
-    <section
-      id="personal"
-      class="mt-16 border-t border-slate-800/60 pt-10"
-    >
-      <h2
-        class="text-lg font-semibold tracking-tight text-slate-50"
-        data-aos="fade-up"
-      >
-        Personal Life
-      </h2>
+    <!-- Personal & Awards Grid -->
+    <div class="mt-24 grid gap-12 lg:grid-cols-2">
+      <!-- Personal -->
+      <section id="personal" data-aos="fade-right">
+        <h2 class="font-display text-2xl font-bold text-white mb-8">Personal Life</h2>
+        
+        <div class="space-y-8">
+          <div>
+            <h3 class="flex items-center gap-2 text-sm font-bold text-white mb-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary-400"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+              Hobbies &amp; Interests
+            </h3>
+            <p class="text-sm leading-relaxed text-slate-400">
+              Outside of work I gravitate toward quiet but absorbing activities: hiking, photography, reading, and the occasional Xbox game session. These are the spaces where long-running ideas about systems, people, and products tend to connect.
+            </p>
+          </div>
 
-      <div
-        class="mt-6 grid gap-8 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]"
-      >
-        <div data-aos="fade-up" data-aos-delay="40">
-          <h3 class="text-sm font-semibold text-slate-200">
-            Hobbies &amp; Interests
-          </h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-300">
-            Outside of work I gravitate toward quiet but absorbing activities:
-            hiking, photography, reading, and the occasional Xbox game session.
-            These are the spaces where long-running ideas about systems, people,
-            and products tend to connect.
-          </p>
+          <div>
+            <h3 class="flex items-center gap-2 text-sm font-bold text-white mb-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary-400"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              Family
+            </h3>
+            <p class="text-sm leading-relaxed text-slate-400">
+              Most days, the center of gravity is my family. I spend as much time as I can with my wife Devanshi, our kids Parth and Anya, and our dog Milo.
+            </p>
+          </div>
 
-          <h3 class="mt-5 text-sm font-semibold text-slate-200">
-            Family
-          </h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-300">
-            Most days, the center of gravity is my family. I spend as much time as
-            I can with my wife Devanshi, our kids Parth and Anya, and our dog Milo.
-          </p>
+          <div class="p-4 rounded-xl bg-primary-500/5 border border-primary-500/10">
+            <h3 class="flex items-center gap-2 text-sm font-bold text-white mb-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary-400"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              Academic Connection
+            </h3>
+            <p class="text-sm leading-relaxed text-slate-400">
+              My brother
+              <a
+                href="https://ambujtewari.github.io/"
+                class="text-primary-400 font-medium hover:underline hover:text-primary-300 transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ambuj Tewari
+              </a>
+              is a Professor in Statistics at the University of Michigan, Ann Arbor. Our conversations often jump between theory, applications, and what it means to build systems that people genuinely understand.
+            </p>
+          </div>
+        </div>
+      </section>
 
-          <h3 class="mt-5 text-sm font-semibold text-slate-200">
-            Academic Connection
-          </h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-300">
-            My brother
-            <a
-              href="https://ambujtewari.github.io/"
-              class="text-primary-300 underline decoration-primary-600/60 underline-offset-2 hover:text-primary-200"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Ambuj Tewari
-            </a>
-            is a Professor in Statistics at the University of Michigan, Ann Arbor.
-            Our conversations often jump between theory, applications, and what it
-            means to build systems that people genuinely understand.
-          </p>
+      <!-- Awards -->
+      <section id="awards" data-aos="fade-left">
+        <h2 class="font-display text-2xl font-bold text-white mb-8">Awards &amp; Memberships</h2>
+        
+        <div class="grid gap-3">
+          <div class="group flex items-center justify-between p-4 rounded-xl border border-white/5 bg-white/5 hover:bg-white/10 hover:border-primary-500/30 transition-all">
+            <span class="text-sm font-medium text-slate-200">Sigma Xi Member</span>
+            <span class="text-xs text-slate-500">Since 2014</span>
+          </div>
+          <div class="group flex items-center justify-between p-4 rounded-xl border border-white/5 bg-white/5 hover:bg-white/10 hover:border-primary-500/30 transition-all">
+            <span class="text-sm font-medium text-slate-200">ACM SIGCHI Member</span>
+            <span class="text-xs text-slate-500">Since 2010</span>
+          </div>
+          <div class="group flex items-center justify-between p-4 rounded-xl border border-white/5 bg-white/5 hover:bg-white/10 hover:border-primary-500/30 transition-all">
+            <span class="text-sm font-medium text-slate-200">Samuel Silver Memorial Award</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+          </div>
+          <div class="group flex items-center justify-between p-4 rounded-xl border border-white/5 bg-white/5 hover:bg-white/10 hover:border-primary-500/30 transition-all">
+            <span class="text-sm font-medium text-slate-200">Big Ideas @ Berkeley Winner</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+          </div>
+          <div class="group flex items-center justify-between p-4 rounded-xl border border-white/5 bg-white/5 hover:bg-white/10 hover:border-primary-500/30 transition-all">
+            <span class="text-sm font-medium text-slate-200">Qualcomm Innovation Fellowship Finalist</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+          </div>
+          <div class="group flex items-center justify-between p-4 rounded-xl border border-white/5 bg-white/5 hover:bg-white/10 hover:border-primary-500/30 transition-all">
+            <span class="text-sm font-medium text-slate-200">ACM CHI Best Paper Honorable Mention</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+          </div>
         </div>
-
-        <div
-          class="space-y-4 rounded-2xl border border-slate-800/80 bg-slate-900/40 p-5 text-xs text-slate-300"
-          data-aos="fade-left"
-          data-aos-delay="120"
-        >
-          <h3 class="text-sm font-semibold text-slate-100">
-            A few themes I return to
-          </h3>
-          <ul class="mt-2 space-y-2 list-disc list-inside">
-            <li>How people form trust in complex information environments</li>
-            <li>Where qualitative insight and measurement actually meet</li>
-            <li>What responsible AI looks like in everyday search behavior</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Awards -->
-    <section
-      id="awards"
-      class="mt-16 border-t border-slate-800/60 pt-10"
-    >
-      <h2
-        class="text-lg font-semibold tracking-tight text-slate-50"
-        data-aos="fade-up"
-      >
-        Awards &amp; Memberships
-      </h2>
-
-      <div
-        class="mt-6 grid gap-4 text-sm text-slate-200 sm:grid-cols-2"
-        data-aos="fade-up"
-        data-aos-delay="60"
-      >
-        <div class="space-y-1">
-          <p class="font-medium">Sigma Xi Member</p>
-          <p class="text-xs text-slate-400">Since 2014</p>
-        </div>
-        <div class="space-y-1">
-          <p class="font-medium">ACM SIGCHI Member</p>
-          <p class="text-xs text-slate-400">Since 2010</p>
-        </div>
-        <div class="space-y-1">
-          <p class="font-medium">Samuel Silver Memorial Award</p>
-        </div>
-        <div class="space-y-1">
-          <p class="font-medium">Big Ideas @ Berkeley Winner</p>
-        </div>
-        <div class="space-y-1">
-          <p class="font-medium">Qualcomm Innovation Fellowship Finalist</p>
-        </div>
-        <div class="space-y-1">
-          <p class="font-medium">ACM CHI Best Paper Honorable Mention</p>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
     <!-- Contact / footer -->
-    <section
-      id="contact"
-      class="mt-16 border-t border-slate-800/60 pt-10"
-    >
-      <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <div data-aos="fade-up">
-          <h2 class="text-lg font-semibold tracking-tight text-slate-50">
-            Get in Touch
-          </h2>
-          <p class="mt-2 text-sm text-slate-300 max-w-xl">
-            For collaboration, speaking, or research discussions, the easiest way
-            to reach me is by email:
-            <span class="font-mono text-primary-200">
-              first name + last name + 17 @ gmail
-            </span>
+    <section id="contact" class="mt-24 pt-10 border-t border-white/5">
+      <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between text-center md:text-left">
+        <div>
+          <h2 class="font-display text-xl font-bold text-white">Let's Connect</h2>
+          <p class="mt-2 text-sm text-slate-400">
+            Reach me at <a href="mailto:anujtewari17@gmail.com" class="font-mono text-primary-400 hover:underline">anujtewari17@gmail.com</a>
           </p>
         </div>
-        <div
-          class="text-xs text-slate-500"
-          data-aos="fade-up"
-          data-aos-delay="80"
-        >
-          © <span id="year"></span> Anuj Tewari. All rights reserved.
+        
+        <div class="flex justify-center gap-6">
+          <a href="https://github.com/anujtewari17" target="_blank" class="text-slate-500 hover:text-white hover:scale-110 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+            <span class="sr-only">GitHub</span>
+          </a>
+          <a href="https://linkedin.com/in/anujtewari" target="_blank" class="text-slate-500 hover:text-white hover:scale-110 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            <span class="sr-only">LinkedIn</span>
+          </a>
+          <a href="https://twitter.com/anujtewari" target="_blank" class="text-slate-500 hover:text-white hover:scale-110 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+            <span class="sr-only">Twitter</span>
+          </a>
         </div>
+      </div>
+      
+      <div class="mt-8 text-center text-xs text-slate-600">
+        © <span id="year"></span> Anuj Tewari. Built with modern web technologies.
       </div>
     </section>
   </main>
@@ -507,13 +431,13 @@
   <script>
     AOS.init({
       once: true,
-      duration: 600,
-      easing: 'ease-out-quart',
+      duration: 800,
+      easing: 'ease-out-cubic',
+      offset: 50,
     });
 
     // Set current year in footer
-    document.getElementById('year').textContent =
-      new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
