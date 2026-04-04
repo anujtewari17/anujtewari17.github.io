@@ -225,6 +225,86 @@
       width: 12px;
       height: 12px;
     }
+
+    /* Custom Cursor Styles */
+    body {
+      cursor: auto; /* Fallback */
+    }
+    @media (pointer: fine) {
+      body {
+        cursor: none;
+      }
+    }
+    .custom-cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 6px;
+      background: var(--primary-500, #3b82f6);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 10000;
+      mix-blend-mode: difference;
+      display: none;
+    }
+    @media (pointer: fine) {
+      .custom-cursor { display: block; }
+    }
+    .custom-cursor-follower {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 32px;
+      height: 32px;
+      border: 1px solid rgba(59, 130, 246, 0.5);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transition: width 0.3s, height 0.3s, background 0.3s, border-color 0.3s;
+      display: none;
+    }
+    @media (pointer: fine) {
+      .custom-cursor-follower { display: block; }
+    }
+    .custom-cursor-follower.hovering {
+      width: 50px;
+      height: 50px;
+      background: rgba(59, 130, 246, 0.1);
+      border-color: rgba(59, 130, 246, 0.8);
+    }
+    .dark .custom-cursor {
+      background: #fff;
+    }
+    .dark .custom-cursor-follower {
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+    .dark .custom-cursor-follower.hovering {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.8);
+    }
+    
+    /* Scroll Progress Bar */
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(to right, #22d3ee, #3b82f6, #a855f7);
+      z-index: 10001;
+      width: 0%;
+      transform-origin: left;
+      transition: width 0.1s;
+    }
+
+    #tsparticles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -5;
+    }
   </style>
   <script>
     // Theme Management
@@ -253,8 +333,13 @@
 <body
   class="bg-slate-50 dark:bg-slate-950 text-slate-600 dark:text-slate-300 antialiased selection:bg-primary-500/30 selection:text-white transition-colors duration-300">
 
-  <!-- Background Glow Effect -->
+  <div id="scroll-progress"></div>
+  <div class="custom-cursor"></div>
+  <div class="custom-cursor-follower"></div>
+
+  <!-- Background Glow Effect & Particles -->
   <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+    <div id="tsparticles"></div>
     <div
       class="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full bg-blue-500/10 dark:bg-primary-500/10 blur-[120px] animate-pulse-slow">
     </div>
@@ -332,9 +417,9 @@
           Hi, I'm <span class="gradient-text">Anuj Tewari</span>
         </h1>
 
-        <p class="text-lg font-medium text-slate-800 dark:text-white/90 mb-4">
-          Head of Research, Google AI Overviews and AI Mode
-        </p>
+        <div class="text-lg font-medium text-slate-800 dark:text-white/90 mb-4 min-h-[30px]" id="typewriter-wrapper">
+          <noscript>Head of Research, Google AI Overviews and AI Mode</noscript>
+        </div>
 
         <p class="max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-400 mb-8">
           I am a computer scientist and product research leader bridging the gap between <strong
@@ -744,6 +829,13 @@
 
   <!-- AOS + small JS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- tsParticles -->
+  <script src="https://cdn.jsdelivr.net/npm/@tsparticles/bundle@3.3.0/tsparticles.bundle.min.js"></script>
+  <!-- Vanilla Tilt -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+  <!-- Typewriter Effect -->
+  <script src="https://unpkg.com/typewriter-effect@2.21.0/dist/core.js"></script>
+
   <script>
     AOS.init({
       once: true,
@@ -754,6 +846,132 @@
 
     // Set current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // 1. Initialize custom cursor
+    const cursor = document.querySelector('.custom-cursor');
+    const cursorFollower = document.querySelector('.custom-cursor-follower');
+    
+    // Use requestAnimationFrame for smooth cursor following
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let cursorX = mouseX;
+    let cursorY = mouseY;
+    let followerX = mouseX;
+    let followerY = mouseY;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function animateCursor() {
+      // Cursor moves instantly
+      cursorX = mouseX;
+      cursorY = mouseY;
+      
+      // Follower has a slight delay
+      followerX += (mouseX - followerX) * 0.15;
+      followerY += (mouseY - followerY) * 0.15;
+      
+      if (cursor && cursorFollower) {
+        cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%)`;
+        cursorFollower.style.transform = `translate(${followerX}px, ${followerY}px) translate(-50%, -50%)`;
+      }
+      
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+    
+    // Expand cursor on interactive elements
+    const iteractiveEls = document.querySelectorAll('a, button');
+    iteractiveEls.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        if(cursorFollower) cursorFollower.classList.add('hovering');
+      });
+      el.addEventListener('mouseleave', () => {
+        if(cursorFollower) cursorFollower.classList.remove('hovering');
+      });
+      
+      // 6. Magnetic Effect for rounded buttons
+      if(el.classList.contains('rounded-full')) {
+        el.addEventListener('mousemove', (e) => {
+          const rect = el.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          el.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px) scale(1.05)`;
+        });
+        el.addEventListener('mouseleave', () => {
+          el.style.transform = `translate(0px, 0px) scale(1)`;
+        });
+      }
+    });
+
+    // 2. Scroll Progress Bar
+    const progressBar = document.getElementById('scroll-progress');
+    window.addEventListener('scroll', () => {
+      const scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollProgress = scrollTotal > 0 ? (window.scrollY / scrollTotal) : 0;
+      if (progressBar) progressBar.style.width = `${scrollProgress * 100}%`;
+    });
+
+    // 3. Vanilla Tilt for Cards
+    document.querySelectorAll('.glass-card').forEach(el => {
+      el.setAttribute('data-tilt', '');
+      el.setAttribute('data-tilt-max', '4');
+      el.setAttribute('data-tilt-speed', '400');
+      el.setAttribute('data-tilt-glare', 'true');
+      el.setAttribute('data-tilt-max-glare', '0.1');
+    });
+    if (typeof VanillaTilt !== 'undefined') {
+      VanillaTilt.init(document.querySelectorAll("[data-tilt]"));
+    }
+
+    // 4. Typewriter Effect
+    const typeWrapper = document.getElementById('typewriter-wrapper');
+    if (typeWrapper && typeof Typewriter !== 'undefined') {
+      new Typewriter(typeWrapper, {
+        loop: true,
+        delay: 50,
+        deleteSpeed: 30,
+      })
+      .typeString('Head of Research, Google AI Overviews and AI Mode')
+      .pauseFor(3000)
+      .deleteAll()
+      .typeString('Computer Scientist & Product Research Leader')
+      .pauseFor(2500)
+      .deleteAll()
+      .typeString('Bridging the gap between HCI and AI')
+      .pauseFor(2500)
+      .start();
+    }
+
+    // 5. tsParticles initialization
+    if (typeof tsParticles !== 'undefined') {
+      tsParticles.load({
+        id: "tsparticles",
+        options: {
+          particles: {
+            color: { value: ["#3b82f6", "#a855f7", "#22d3ee"] },
+            number: { value: 60, density: { enable: true, area: 800 } },
+            opacity: { value: { min: 0.1, max: 0.5 } },
+            size: { value: { min: 1, max: 3 } },
+            move: { enable: true, speed: 0.8, random: true, direction: "none", outModes: "out" },
+            links: { enable: true, color: "#9ca3af", opacity: 0.1, distance: 150 }
+          },
+          interactivity: {
+            events: {
+              onHover: { enable: true, mode: "grab" },
+            },
+            modes: {
+              grab: { distance: 140, links: { opacity: 0.5 } }
+            }
+          },
+          background: { color: { value: "transparent" } },
+          fpsLimit: 60,
+          detectRetina: true
+        }
+      });
+    }
   </script>
 </body>
 
