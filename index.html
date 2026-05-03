@@ -121,6 +121,17 @@
       background: #3D6480;
     }
 
+    /* Dynamic accent palette — changes per section on scroll */
+    @property --c1 { syntax: '<color>'; initial-value: #818CF8; inherits: true; }
+    @property --c2 { syntax: '<color>'; initial-value: #22D3EE; inherits: true; }
+    @property --c3 { syntax: '<color>'; initial-value: #67E8F9; inherits: true; }
+    :root {
+      --c1: #818CF8;
+      --c2: #22D3EE;
+      --c3: #67E8F9;
+      transition: --c1 1.5s ease, --c2 1.5s ease, --c3 1.5s ease;
+    }
+
     .glass-card {
       background: rgba(255, 255, 255, 0.03);
       backdrop-filter: blur(10px);
@@ -144,19 +155,19 @@
     }
 
     .dark .glass-card:hover {
-      background: rgba(129, 140, 248, 0.06);
-      border-color: rgba(129, 140, 248, 0.3);
+      background: color-mix(in srgb, var(--c1) 6%, transparent);
+      border-color: color-mix(in srgb, var(--c1) 30%, transparent);
       box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
     }
 
     .light .glass-card:hover {
       background: rgba(255, 255, 255, 0.95);
-      border-color: rgba(99, 102, 241, 0.25);
+      border-color: color-mix(in srgb, var(--c1) 25%, transparent);
       box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
     }
 
     .gradient-text {
-      background: linear-gradient(to right, #818CF8, #22D3EE, #A5B4FC);
+      background: linear-gradient(to right, var(--c1), var(--c2), var(--c3));
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -207,11 +218,11 @@
     }
 
     .glow-on-hover:hover {
-      box-shadow: 0 0 20px rgba(129, 140, 248, 0.5);
+      box-shadow: 0 0 20px color-mix(in srgb, var(--c1) 50%, transparent);
     }
 
     .dark .glow-on-hover:hover {
-      box-shadow: 0 0 30px rgba(129, 140, 248, 0.3);
+      box-shadow: 0 0 30px color-mix(in srgb, var(--c1) 30%, transparent);
     }
 
     /* Theme Toggle Switch Styles */
@@ -269,7 +280,7 @@
       left: 0;
       width: 6px;
       height: 6px;
-      background: #818CF8;
+      background: var(--c1);
       border-radius: 50%;
       pointer-events: none;
       z-index: 10000;
@@ -285,7 +296,7 @@
       left: 0;
       width: 32px;
       height: 32px;
-      border: 1px solid rgba(129, 140, 248, 0.5);
+      border: 1px solid color-mix(in srgb, var(--c1) 50%, transparent);
       border-radius: 50%;
       pointer-events: none;
       z-index: 9999;
@@ -298,8 +309,8 @@
     .custom-cursor-follower.hovering {
       width: 50px;
       height: 50px;
-      background: rgba(129, 140, 248, 0.1);
-      border-color: rgba(129, 140, 248, 0.8);
+      background: color-mix(in srgb, var(--c1) 10%, transparent);
+      border-color: color-mix(in srgb, var(--c1) 80%, transparent);
     }
     
     /* Scroll Progress Bar */
@@ -308,7 +319,7 @@
       top: 0;
       left: 0;
       height: 4px;
-      background: linear-gradient(to right, #818CF8, #22D3EE, #67E8F9);
+      background: linear-gradient(to right, var(--c1), var(--c2), var(--c3));
       z-index: 10001;
       width: 0%;
       transform-origin: left;
@@ -320,7 +331,7 @@
       position: absolute;
       inset: -4px;
       border-radius: 2.25rem;
-      background: conic-gradient(from var(--ring-angle, 0deg), #818CF8, #22D3EE, #67E8F9, #A5B4FC, #818CF8);
+      background: conic-gradient(from var(--ring-angle, 0deg), var(--c1), var(--c2), var(--c3), var(--c1));
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
       mask-composite: exclude;
@@ -362,11 +373,23 @@
       100% { opacity: 0; transform: translateY(-8vh) scale(1); }
     }
 
+    /* Ambient blob hue rotation */
+    @keyframes blob-hue {
+      to { filter: hue-rotate(360deg); }
+    }
+    #blob-wrapper {
+      position: absolute;
+      inset: 0;
+      animation: blob-hue 45s linear infinite;
+    }
+
     @media (prefers-reduced-motion: reduce) {
       [data-aos] { transition: none !important; animation: none !important; }
       .gradient-text, .animate-pulse-slow, .animate-float { animation: none !important; }
       .particle { animation: none !important; opacity: 0 !important; }
       #scroll-progress { transition: none !important; }
+      #blob-wrapper { animation: none !important; }
+      :root { transition: none !important; }
     }
   </style>
   <script>
@@ -463,21 +486,23 @@
     <span class="particle" style="left:75%;width:2px;height:2px;background:#818CF8;animation-duration:17s;animation-delay:-6.5s;"></span>
     <span class="particle" style="left:83%;width:3px;height:3px;background:#22D3EE;animation-duration:25s;animation-delay:-18s;"></span>
     <span class="particle" style="left:90%;width:2px;height:2px;background:#67E8F9;animation-duration:20s;animation-delay:-2.5s;"></span>
-    <div
-      class="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full blur-[120px] animate-pulse-slow"
-      style="background: rgba(129,140,248,0.12);">
-    </div>
-    <div
-      class="absolute bottom-[-10%] left-[-5%] w-[600px] h-[600px] rounded-full blur-[120px] animate-pulse-slow"
-      style="background: rgba(34,211,238,0.09); animation-delay: -4s;">
-    </div>
-    <div
-      class="absolute top-[20%] left-[10%] w-[400px] h-[400px] rounded-full blur-[100px] animate-float"
-      style="background: rgba(165,180,252,0.07);">
-    </div>
-    <div
-      class="absolute bottom-[20%] right-[10%] w-[400px] h-[400px] rounded-full blur-[100px] animate-float"
-      style="background: rgba(103,232,249,0.06); animation-delay: -3s;">
+    <div id="blob-wrapper">
+      <div
+        class="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full blur-[120px] animate-pulse-slow"
+        style="background: rgba(129,140,248,0.12);">
+      </div>
+      <div
+        class="absolute bottom-[-10%] left-[-5%] w-[600px] h-[600px] rounded-full blur-[120px] animate-pulse-slow"
+        style="background: rgba(34,211,238,0.09); animation-delay: -4s;">
+      </div>
+      <div
+        class="absolute top-[20%] left-[10%] w-[400px] h-[400px] rounded-full blur-[100px] animate-float"
+        style="background: rgba(165,180,252,0.07);">
+      </div>
+      <div
+        class="absolute bottom-[20%] right-[10%] w-[400px] h-[400px] rounded-full blur-[100px] animate-float"
+        style="background: rgba(103,232,249,0.06); animation-delay: -3s;">
+      </div>
     </div>
   </div>
 
@@ -550,7 +575,7 @@
   <!-- Main content wrapper -->
   <main id="home" class="mx-auto max-w-5xl px-4 pb-20 pt-16 sm:px-6 lg:px-8">
     <!-- Hero -->
-    <section class="grid gap-12 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] md:items-center min-h-[60vh]">
+    <section id="hero" class="grid gap-12 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] md:items-center min-h-[60vh]">
       <div data-aos="fade-up" data-aos-duration="1000">
         <div
           class="inline-flex items-center gap-2 rounded-full border border-primary-500/30 bg-primary-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-600 dark:text-primary-400 mb-6 backdrop-blur-sm">
@@ -1186,6 +1211,31 @@
         if (e.key === 'Escape' && mobileMenu && !mobileMenu.classList.contains('hidden')) {
           window.closeMobileMenu();
         }
+      });
+
+      // Scroll-driven section accent palette shift
+      const sectionPalettes = {
+        'hero':       ['#818CF8', '#22D3EE', '#67E8F9'],
+        'about':      ['#A78BFA', '#38BDF8', '#7DD3FC'],
+        'experience': ['#22D3EE', '#34D399', '#6EE7B7'],
+        'education':  ['#818CF8', '#A78BFA', '#C4B5FD'],
+        'personal':   ['#F472B6', '#A78BFA', '#818CF8'],
+        'contact':    ['#818CF8', '#22D3EE', '#67E8F9'],
+      };
+      const rootEl = document.documentElement;
+      const paletteObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const p = sectionPalettes[entry.target.id];
+          if (!p) return;
+          rootEl.style.setProperty('--c1', p[0]);
+          rootEl.style.setProperty('--c2', p[1]);
+          rootEl.style.setProperty('--c3', p[2]);
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40% 0px' });
+      ['hero', 'about', 'experience', 'education', 'personal', 'contact'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) paletteObserver.observe(el);
       });
 
       // Count-up animation for hero stats
