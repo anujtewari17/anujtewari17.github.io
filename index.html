@@ -324,6 +324,38 @@
       transition: width 0.1s;
     }
 
+    /* Animated gradient ring on profile photo */
+    .profile-ring {
+      position: absolute;
+      inset: -4px;
+      border-radius: 2.25rem;
+      background: conic-gradient(from var(--ring-angle, 0deg), #3b82f6, #a855f7, #22d3ee, #f472b6, #3b82f6);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      padding: 2px;
+      z-index: -1;
+      animation: ring-spin 4s linear infinite;
+    }
+    @property --ring-angle {
+      syntax: '<angle>';
+      initial-value: 0deg;
+      inherits: false;
+    }
+    @keyframes ring-spin {
+      to { --ring-angle: 360deg; }
+    }
+
+    /* Contact icon brand-color glow */
+    .icon-github:hover  { color: #e2e8f0; filter: drop-shadow(0 0 8px rgba(226,232,240,0.7)); }
+    .icon-linkedin:hover { color: #0a66c2; filter: drop-shadow(0 0 8px rgba(10,102,194,0.7)); }
+    .icon-scholar:hover  { color: #4285f4; filter: drop-shadow(0 0 8px rgba(66,133,244,0.7)); }
+
+    /* Count-up stat numbers */
+    .stat-number {
+      font-variant-numeric: tabular-nums;
+    }
+
     /* CSS Particles */
     .particle {
       position: absolute;
@@ -568,6 +600,29 @@
             </svg>
           </a>
         </div>
+
+        <!-- Stats strip -->
+        <div class="flex flex-wrap gap-6 mt-10 pt-8 border-t border-black/5 dark:border-white/5">
+          <div class="flex flex-col">
+            <span class="stat-number font-display text-2xl font-bold text-slate-900 dark:text-white" data-count="12" data-suffix="+">0+</span>
+            <span class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Years industry</span>
+          </div>
+          <div class="w-px bg-black/10 dark:bg-white/10 self-stretch" aria-hidden="true"></div>
+          <div class="flex flex-col">
+            <span class="stat-number font-display text-2xl font-bold text-slate-900 dark:text-white" data-count="5">0</span>
+            <span class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Companies</span>
+          </div>
+          <div class="w-px bg-black/10 dark:bg-white/10 self-stretch" aria-hidden="true"></div>
+          <div class="flex flex-col">
+            <span class="stat-number font-display text-2xl font-bold text-slate-900 dark:text-white" data-count="6">0</span>
+            <span class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Awards &amp; honours</span>
+          </div>
+          <div class="w-px bg-black/10 dark:bg-white/10 self-stretch" aria-hidden="true"></div>
+          <div class="flex flex-col">
+            <span class="stat-number font-display text-2xl font-bold text-primary-600 dark:text-primary-400">PhD</span>
+            <span class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">UC Berkeley, CS</span>
+          </div>
+        </div>
       </div>
 
       <!-- Profile image -->
@@ -578,8 +633,11 @@
           class="absolute inset-0 bg-gradient-to-tr from-primary-500/20 to-purple-500/20 blur-2xl rounded-full transform scale-90 translate-y-4">
         </div>
 
-        <div
-          class="relative h-64 w-64 md:h-80 md:w-80 overflow-hidden rounded-[2rem] border-2 border-primary-500/20 dark:border-white/10 bg-white dark:bg-slate-900 shadow-2xl rotate-3 hover:rotate-0 transition-all duration-500 group shine-card">
+        <div class="relative h-64 w-64 md:h-80 md:w-80">
+          <!-- Rotating gradient ring -->
+          <div class="profile-ring"></div>
+          <div
+            class="relative w-full h-full overflow-hidden rounded-[2rem] bg-white dark:bg-slate-900 shadow-2xl rotate-3 hover:rotate-0 transition-all duration-500 group shine-card">
           <picture>
             <source srcset="img/profile.webp" type="image/webp" />
             <img src="img/profile.jpg" alt="Portrait of Anuj Tewari"
@@ -592,6 +650,7 @@
             class="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/40 dark:from-slate-950/60 via-transparent to-transparent">
           </div>
         </div>
+        </div><!-- /ring wrapper -->
       </div>
     </section>
 
@@ -870,21 +929,21 @@
       </section>
 
       <!-- Awards -->
-      <section id="awards" data-aos="fade-left">
-        <h2 class="font-display text-2xl font-bold text-slate-900 dark:text-white mb-8">Awards &amp; Memberships</h2>
+      <section id="awards">
+        <h2 class="font-display text-2xl font-bold text-slate-900 dark:text-white mb-8" data-aos="fade-left">Awards &amp; Memberships</h2>
 
         <div class="grid gap-3">
-          <div
+          <div data-aos="fade-left" data-aos-delay="50"
             class="group flex items-center justify-between p-4 rounded-xl border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 hover:border-primary-500/30 transition-all">
             <span class="text-sm font-medium text-slate-800 dark:text-slate-200">Sigma Xi Member</span>
             <span class="text-xs text-slate-500">Since 2014</span>
           </div>
-          <div
+          <div data-aos="fade-left" data-aos-delay="100"
             class="group flex items-center justify-between p-4 rounded-xl border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 hover:border-primary-500/30 transition-all">
             <span class="text-sm font-medium text-slate-800 dark:text-slate-200">ACM SIGCHI Member</span>
             <span class="text-xs text-slate-500">Since 2010</span>
           </div>
-          <div
+          <div data-aos="fade-left" data-aos-delay="150"
             class="group flex items-center justify-between p-4 rounded-xl border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 hover:border-primary-500/30 transition-all">
             <span class="text-sm font-medium text-slate-800 dark:text-slate-200">Samuel Silver Memorial Award</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
@@ -894,7 +953,7 @@
               <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
             </svg>
           </div>
-          <div
+          <div data-aos="fade-left" data-aos-delay="200"
             class="group flex items-center justify-between p-4 rounded-xl border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 hover:border-primary-500/30 transition-all">
             <span class="text-sm font-medium text-slate-800 dark:text-slate-200">Big Ideas @ Berkeley Winner</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
@@ -904,10 +963,9 @@
               <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
             </svg>
           </div>
-          <div
+          <div data-aos="fade-left" data-aos-delay="250"
             class="group flex items-center justify-between p-4 rounded-xl border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 hover:border-primary-500/30 transition-all">
-            <span class="text-sm font-medium text-slate-800 dark:text-slate-200">Qualcomm Innovation Fellowship
-              Finalist</span>
+            <span class="text-sm font-medium text-slate-800 dark:text-slate-200">Qualcomm Innovation Fellowship Finalist</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
               class="text-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -915,10 +973,9 @@
               <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
             </svg>
           </div>
-          <div
+          <div data-aos="fade-left" data-aos-delay="300"
             class="group flex items-center justify-between p-4 rounded-xl border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 hover:border-primary-500/30 transition-all">
-            <span class="text-sm font-medium text-slate-800 dark:text-slate-200">ACM CHI Best Paper Honorable
-              Mention</span>
+            <span class="text-sm font-medium text-slate-800 dark:text-slate-200">ACM CHI Best Paper Honorable Mention</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
               class="text-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -943,7 +1000,7 @@
 
         <div class="flex justify-center gap-6">
           <a href="https://github.com/anujtewari17" target="_blank" rel="noopener noreferrer"
-            class="text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white hover:scale-110 transition-all">
+            class="icon-github text-slate-400 dark:text-slate-500 hover:scale-110 transition-all" style="transition: color 0.2s, filter 0.2s, transform 0.2s;">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path
@@ -953,7 +1010,7 @@
             <span class="sr-only">GitHub</span>
           </a>
           <a href="https://www.linkedin.com/in/anuj-tewari" target="_blank" rel="noopener noreferrer"
-            class="text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white hover:scale-110 transition-all">
+            class="icon-linkedin text-slate-400 dark:text-slate-500 hover:scale-110 transition-all" style="transition: color 0.2s, filter 0.2s, transform 0.2s;">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
@@ -963,7 +1020,7 @@
             <span class="sr-only">LinkedIn</span>
           </a>
           <a href="https://scholar.google.com/citations?user=RLvAe8IAAAAJ&hl=en" target="_blank" rel="noopener noreferrer"
-            class="text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white hover:scale-110 transition-all">
+            class="icon-scholar text-slate-400 dark:text-slate-500 hover:scale-110 transition-all" style="transition: color 0.2s, filter 0.2s, transform 0.2s;">
             <!-- Google Scholar mortarboard icon -->
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1115,9 +1172,34 @@
       // Close mobile menu on Escape
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && mobileMenu && !mobileMenu.classList.contains('hidden')) {
-          closeMobileMenu();
+          window.closeMobileMenu();
         }
       });
+
+      // Count-up animation for hero stats
+      const countEls = document.querySelectorAll('[data-count]');
+      if (countEls.length) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            observer.unobserve(entry.target);
+            const el = entry.target;
+            const target = parseInt(el.dataset.count, 10);
+            const suffix = el.dataset.suffix || '';
+            const duration = 1200;
+            const step = 16;
+            const steps = Math.round(duration / step);
+            let current = 0;
+            const increment = target / steps;
+            const timer = setInterval(() => {
+              current = Math.min(current + increment, target);
+              el.textContent = Math.round(current) + suffix;
+              if (current >= target) clearInterval(timer);
+            }, step);
+          });
+        }, { threshold: 0.5 });
+        countEls.forEach(el => observer.observe(el));
+      }
     });
   </script>
 </body>
