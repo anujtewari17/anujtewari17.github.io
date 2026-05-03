@@ -3,14 +3,41 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Anuj Tewari – Research Leader</title>
+  <title>Anuj Tewari – Head of Research, Google AI Overviews | HCI Researcher</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description"
-    content="Anuj Tewari – Computer scientist, HCI researcher, and product research leader working on bringing AI to Google Search." />
+    content="Anuj Tewari – Computer scientist, HCI researcher, and product research leader. Head of Research at Google AI Overviews and AI Mode. PhD, UC Berkeley." />
+  <meta name="author" content="Anuj Tewari" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://anujtewari.net/" />
+  <meta property="og:title" content="Anuj Tewari – Head of Research, Google AI Overviews &amp; AI Mode" />
+  <meta property="og:description" content="Computer scientist and product research leader bridging HCI and AI. PhD UC Berkeley. Head of Research at Google AI Overviews and AI Mode." />
+  <meta property="og:image" content="https://anujtewari.net/img/profile.jpg" />
+  <meta property="og:image:width" content="640" />
+  <meta property="og:image:height" content="640" />
+  <meta property="og:site_name" content="Anuj Tewari" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Anuj Tewari – Head of Research, Google AI Overviews &amp; AI Mode" />
+  <meta name="twitter:description" content="Computer scientist and product research leader bridging HCI and AI. PhD UC Berkeley." />
+  <meta name="twitter:image" content="https://anujtewari.net/img/profile.jpg" />
+
+  <!-- Canonical & Theme -->
+  <link rel="canonical" href="https://anujtewari.net/" />
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- CDN resource hints -->
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="dns-prefetch" href="https://unpkg.com">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap"
     rel="stylesheet">
@@ -297,17 +324,63 @@
       transition: width 0.1s;
     }
 
-    #tsparticles {
+    /* Animated gradient ring on profile photo */
+    .profile-ring {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -5;
+      inset: -4px;
+      border-radius: 2.25rem;
+      background: conic-gradient(from var(--ring-angle, 0deg), #3b82f6, #a855f7, #22d3ee, #f472b6, #3b82f6);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      padding: 2px;
+      z-index: -1;
+      animation: ring-spin 4s linear infinite;
+    }
+    @property --ring-angle {
+      syntax: '<angle>';
+      initial-value: 0deg;
+      inherits: false;
+    }
+    @keyframes ring-spin {
+      to { --ring-angle: 360deg; }
+    }
+
+    /* Contact icon brand-color glow */
+    .icon-github:hover  { color: #e2e8f0; filter: drop-shadow(0 0 8px rgba(226,232,240,0.7)); }
+    .icon-linkedin:hover { color: #0a66c2; filter: drop-shadow(0 0 8px rgba(10,102,194,0.7)); }
+    .icon-scholar:hover  { color: #4285f4; filter: drop-shadow(0 0 8px rgba(66,133,244,0.7)); }
+
+    /* Count-up stat numbers */
+    .stat-number {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* CSS Particles */
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0;
+      animation: particle-float linear infinite;
+      pointer-events: none;
+    }
+    @keyframes particle-float {
+      0%   { opacity: 0; transform: translateY(100vh) scale(0.5); }
+      8%   { opacity: 0.45; }
+      90%  { opacity: 0.35; }
+      100% { opacity: 0; transform: translateY(-8vh) scale(1); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      [data-aos] { transition: none !important; animation: none !important; }
+      .gradient-text, .animate-pulse-slow, .animate-float { animation: none !important; }
+      .particle { animation: none !important; opacity: 0 !important; }
+      #scroll-progress { transition: none !important; }
     }
   </style>
   <script>
     // Theme Management
+    // Prevent FOUC by applying theme class synchronously before paint
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.classList.add('dark', 'dark-mode');
       document.documentElement.classList.remove('light');
@@ -328,6 +401,41 @@
       }
     }
   </script>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Anuj Tewari",
+    "url": "https://anujtewari.net",
+    "image": "https://anujtewari.net/img/profile.jpg",
+    "jobTitle": "Head of Research",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Google",
+      "url": "https://google.com"
+    },
+    "alumniOf": [
+      {
+        "@type": "EducationalOrganization",
+        "name": "University of California, Berkeley",
+        "sameAs": "https://www.berkeley.edu"
+      },
+      {
+        "@type": "EducationalOrganization",
+        "name": "Dhirubhai Ambani Institute of ICT"
+      }
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/in/anuj-tewari",
+      "https://github.com/anujtewari17",
+      "https://scholar.google.com/citations?user=RLvAe8IAAAAJ&hl=en"
+    ],
+    "description": "Computer scientist and product research leader. Head of Research at Google for AI Overviews and AI Mode. PhD in Computer Science from UC Berkeley.",
+    "knowsAbout": ["Human-Computer Interaction", "User Research", "Artificial Intelligence", "Machine Learning", "Product Research", "Trust and Safety", "Search"]
+  }
+  </script>
 </head>
 
 <body
@@ -337,9 +445,33 @@
   <div class="custom-cursor"></div>
   <div class="custom-cursor-follower"></div>
 
-  <!-- Background Glow Effect & Particles -->
+  <!-- Background Glow Effect & CSS Particles -->
   <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
-    <div id="tsparticles"></div>
+    <!-- Lightweight CSS-only particles (zero JS, zero rAF loop) -->
+    <span class="particle" style="left:5%;width:2px;height:2px;background:#3b82f6;animation-duration:18s;animation-delay:0s;"></span>
+    <span class="particle" style="left:12%;width:3px;height:3px;background:#a855f7;animation-duration:24s;animation-delay:-4s;"></span>
+    <span class="particle" style="left:20%;width:2px;height:2px;background:#22d3ee;animation-duration:20s;animation-delay:-9s;"></span>
+    <span class="particle" style="left:28%;width:3px;height:3px;background:#3b82f6;animation-duration:16s;animation-delay:-2s;"></span>
+    <span class="particle" style="left:35%;width:2px;height:2px;background:#a855f7;animation-duration:22s;animation-delay:-13s;"></span>
+    <span class="particle" style="left:42%;width:3px;height:3px;background:#22d3ee;animation-duration:19s;animation-delay:-7s;"></span>
+    <span class="particle" style="left:50%;width:2px;height:2px;background:#3b82f6;animation-duration:25s;animation-delay:-1s;"></span>
+    <span class="particle" style="left:57%;width:3px;height:3px;background:#a855f7;animation-duration:17s;animation-delay:-11s;"></span>
+    <span class="particle" style="left:64%;width:2px;height:2px;background:#22d3ee;animation-duration:21s;animation-delay:-5s;"></span>
+    <span class="particle" style="left:72%;width:3px;height:3px;background:#3b82f6;animation-duration:23s;animation-delay:-16s;"></span>
+    <span class="particle" style="left:79%;width:2px;height:2px;background:#a855f7;animation-duration:15s;animation-delay:-8s;"></span>
+    <span class="particle" style="left:86%;width:3px;height:3px;background:#22d3ee;animation-duration:20s;animation-delay:-3s;"></span>
+    <span class="particle" style="left:93%;width:2px;height:2px;background:#3b82f6;animation-duration:18s;animation-delay:-14s;"></span>
+    <span class="particle" style="left:8%;width:2px;height:2px;background:#a855f7;animation-duration:26s;animation-delay:-6s;"></span>
+    <span class="particle" style="left:16%;width:3px;height:3px;background:#22d3ee;animation-duration:19s;animation-delay:-10s;"></span>
+    <span class="particle" style="left:24%;width:2px;height:2px;background:#3b82f6;animation-duration:22s;animation-delay:-17s;"></span>
+    <span class="particle" style="left:33%;width:3px;height:3px;background:#a855f7;animation-duration:16s;animation-delay:-0.5s;"></span>
+    <span class="particle" style="left:46%;width:2px;height:2px;background:#22d3ee;animation-duration:24s;animation-delay:-12s;"></span>
+    <span class="particle" style="left:54%;width:3px;height:3px;background:#3b82f6;animation-duration:18s;animation-delay:-15s;"></span>
+    <span class="particle" style="left:61%;width:2px;height:2px;background:#a855f7;animation-duration:21s;animation-delay:-3.5s;"></span>
+    <span class="particle" style="left:68%;width:3px;height:3px;background:#22d3ee;animation-duration:23s;animation-delay:-9.5s;"></span>
+    <span class="particle" style="left:75%;width:2px;height:2px;background:#3b82f6;animation-duration:17s;animation-delay:-6.5s;"></span>
+    <span class="particle" style="left:83%;width:3px;height:3px;background:#a855f7;animation-duration:25s;animation-delay:-18s;"></span>
+    <span class="particle" style="left:90%;width:2px;height:2px;background:#22d3ee;animation-duration:20s;animation-delay:-2.5s;"></span>
     <div
       class="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full bg-blue-500/10 dark:bg-primary-500/10 blur-[120px] animate-pulse-slow">
     </div>
@@ -372,6 +504,21 @@
       </nav>
 
       <div class="flex items-center gap-4">
+        <!-- Mobile menu button -->
+        <button id="mobile-menu-btn"
+          class="sm:hidden p-2 rounded-lg text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors"
+          aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+          <svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+
         <!-- Theme Toggle -->
         <button onclick="toggleTheme()" class="theme-toggle-btn" aria-label="Toggle theme">
           <div class="theme-toggle-dot">
@@ -397,6 +544,15 @@
       </div>
     </div>
   </header>
+
+  <!-- Mobile navigation overlay -->
+  <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-slate-950/95 backdrop-blur-md flex flex-col items-center justify-center gap-10" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <a href="#about" onclick="window.closeMobileMenu()" class="font-display text-3xl font-bold text-white hover:text-primary-400 transition-colors">About</a>
+    <a href="#experience" onclick="window.closeMobileMenu()" class="font-display text-3xl font-bold text-white hover:text-primary-400 transition-colors">Experience</a>
+    <a href="#education" onclick="window.closeMobileMenu()" class="font-display text-3xl font-bold text-white hover:text-primary-400 transition-colors">Education</a>
+    <a href="#personal" onclick="window.closeMobileMenu()" class="font-display text-3xl font-bold text-white hover:text-primary-400 transition-colors">Personal</a>
+    <a href="#contact" onclick="window.closeMobileMenu()" class="mt-2 rounded-full border border-white/20 bg-white/10 px-8 py-3 text-lg font-bold text-white hover:bg-white/20 transition-all">Get in touch</a>
+  </div>
 
   <!-- Main content wrapper -->
   <main id="home" class="mx-auto max-w-5xl px-4 pb-20 pt-16 sm:px-6 lg:px-8">
@@ -444,6 +600,29 @@
             </svg>
           </a>
         </div>
+
+        <!-- Stats strip -->
+        <div class="flex flex-wrap gap-6 mt-10 pt-8 border-t border-black/5 dark:border-white/5">
+          <div class="flex flex-col">
+            <span class="stat-number font-display text-2xl font-bold text-slate-900 dark:text-white" data-count="12" data-suffix="+">0+</span>
+            <span class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Years industry</span>
+          </div>
+          <div class="w-px bg-black/10 dark:bg-white/10 self-stretch" aria-hidden="true"></div>
+          <div class="flex flex-col">
+            <span class="stat-number font-display text-2xl font-bold text-slate-900 dark:text-white" data-count="5">0</span>
+            <span class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Companies</span>
+          </div>
+          <div class="w-px bg-black/10 dark:bg-white/10 self-stretch" aria-hidden="true"></div>
+          <div class="flex flex-col">
+            <span class="stat-number font-display text-2xl font-bold text-slate-900 dark:text-white" data-count="6">0</span>
+            <span class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Awards &amp; honours</span>
+          </div>
+          <div class="w-px bg-black/10 dark:bg-white/10 self-stretch" aria-hidden="true"></div>
+          <div class="flex flex-col">
+            <span class="stat-number font-display text-2xl font-bold text-primary-600 dark:text-primary-400">PhD</span>
+            <span class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">UC Berkeley, CS</span>
+          </div>
+        </div>
       </div>
 
       <!-- Profile image -->
@@ -454,14 +633,24 @@
           class="absolute inset-0 bg-gradient-to-tr from-primary-500/20 to-purple-500/20 blur-2xl rounded-full transform scale-90 translate-y-4">
         </div>
 
-        <div
-          class="relative h-64 w-64 md:h-80 md:w-80 overflow-hidden rounded-[2rem] border-2 border-primary-500/20 dark:border-white/10 bg-white dark:bg-slate-900 shadow-2xl rotate-3 hover:rotate-0 transition-all duration-500 group shine-card">
-          <img src="img/profile.jpg" alt="Portrait of Anuj Tewari"
-            class="h-full w-full object-cover group-hover:scale-110 transition-transform duration-700" />
+        <div class="relative h-64 w-64 md:h-80 md:w-80">
+          <!-- Rotating gradient ring -->
+          <div class="profile-ring"></div>
+          <div
+            class="relative w-full h-full overflow-hidden rounded-[2rem] bg-white dark:bg-slate-900 shadow-2xl rotate-3 hover:rotate-0 transition-all duration-500 group shine-card">
+          <picture>
+            <source srcset="img/profile.webp" type="image/webp" />
+            <img src="img/profile.jpg" alt="Portrait of Anuj Tewari"
+              width="320" height="320"
+              fetchpriority="high"
+              decoding="async"
+              class="h-full w-full object-cover group-hover:scale-110 transition-transform duration-700" />
+          </picture>
           <div
             class="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/40 dark:from-slate-950/60 via-transparent to-transparent">
           </div>
         </div>
+        </div><!-- /ring wrapper -->
       </div>
     </section>
 
@@ -479,6 +668,20 @@
             Over the years I have led teams across industry to design research programs that are rigorous enough to
             publish and concrete enough to influence roadmaps, launch decisions, and product narratives.
           </p>
+          <p>
+            My methodology blends qualitative and quantitative approaches — diary studies, in-depth interviews, and
+            large-scale behavioral analysis often run in parallel on the same question. That combination is what lets
+            findings hold up both in a research paper and in a product review.
+          </p>
+          <!-- Research interests -->
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="inline-flex items-center rounded-full bg-primary-500/10 border border-primary-500/20 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">HCI</span>
+            <span class="inline-flex items-center rounded-full bg-accent-500/10 border border-accent-500/20 px-3 py-1 text-xs font-medium text-accent-700 dark:text-accent-300">AI &amp; Search</span>
+            <span class="inline-flex items-center rounded-full bg-cyan-500/10 border border-cyan-500/20 px-3 py-1 text-xs font-medium text-cyan-700 dark:text-cyan-300">Trust &amp; Safety</span>
+            <span class="inline-flex items-center rounded-full bg-primary-500/10 border border-primary-500/20 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300">User Intent Modeling</span>
+            <span class="inline-flex items-center rounded-full bg-accent-500/10 border border-accent-500/20 px-3 py-1 text-xs font-medium text-accent-700 dark:text-accent-300">Mixed Methods</span>
+            <span class="inline-flex items-center rounded-full bg-cyan-500/10 border border-cyan-500/20 px-3 py-1 text-xs font-medium text-cyan-700 dark:text-cyan-300">Product Research</span>
+          </div>
         </div>
       </div>
     </section>
@@ -487,7 +690,7 @@
     <section id="experience" class="mt-24 pt-10">
       <div class="flex items-center gap-4 mb-10" data-aos="fade-up">
         <h2 class="font-display text-2xl font-bold text-slate-900 dark:text-white">Professional Experience</h2>
-        <div class="h-px bg-black/10 dark:bg-white/10 flex-grow"></div>
+        <div class="h-px bg-black/10 dark:bg-white/10 flex-grow" aria-hidden="true"></div>
       </div>
 
       <div class="relative space-y-8 pl-4 md:pl-0">
@@ -531,7 +734,7 @@
             <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
               <div>
                 <h3 class="font-display text-lg font-bold text-slate-900 dark:text-white">Research Manager</h3>
-                <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Facebook</p>
+                <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Meta (Facebook)</p>
               </div>
               <span
                 class="inline-flex items-center rounded-md bg-black/5 dark:bg-white/5 px-2 py-1 text-xs font-medium text-slate-500 dark:text-slate-400 ring-1 ring-inset ring-black/10 dark:ring-white/10">Nov
@@ -620,7 +823,7 @@
     <section id="education" class="mt-24 pt-10">
       <div class="flex items-center gap-4 mb-10" data-aos="fade-up">
         <h2 class="font-display text-2xl font-bold text-slate-900 dark:text-white">Education</h2>
-        <div class="h-px bg-black/10 dark:bg-white/10 flex-grow"></div>
+        <div class="h-px bg-black/10 dark:bg-white/10 flex-grow" aria-hidden="true"></div>
       </div>
 
       <div class="grid gap-6 md:grid-cols-2">
@@ -726,21 +929,21 @@
       </section>
 
       <!-- Awards -->
-      <section id="awards" data-aos="fade-left">
-        <h2 class="font-display text-2xl font-bold text-slate-900 dark:text-white mb-8">Awards &amp; Memberships</h2>
+      <section id="awards">
+        <h2 class="font-display text-2xl font-bold text-slate-900 dark:text-white mb-8" data-aos="fade-left">Awards &amp; Memberships</h2>
 
         <div class="grid gap-3">
-          <div
+          <div data-aos="fade-left" data-aos-delay="50"
             class="group flex items-center justify-between p-4 rounded-xl border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 hover:border-primary-500/30 transition-all">
             <span class="text-sm font-medium text-slate-800 dark:text-slate-200">Sigma Xi Member</span>
             <span class="text-xs text-slate-500">Since 2014</span>
           </div>
-          <div
+          <div data-aos="fade-left" data-aos-delay="100"
             class="group flex items-center justify-between p-4 rounded-xl border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 hover:border-primary-500/30 transition-all">
             <span class="text-sm font-medium text-slate-800 dark:text-slate-200">ACM SIGCHI Member</span>
             <span class="text-xs text-slate-500">Since 2010</span>
           </div>
-          <div
+          <div data-aos="fade-left" data-aos-delay="150"
             class="group flex items-center justify-between p-4 rounded-xl border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 hover:border-primary-500/30 transition-all">
             <span class="text-sm font-medium text-slate-800 dark:text-slate-200">Samuel Silver Memorial Award</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
@@ -750,7 +953,7 @@
               <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
             </svg>
           </div>
-          <div
+          <div data-aos="fade-left" data-aos-delay="200"
             class="group flex items-center justify-between p-4 rounded-xl border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 hover:border-primary-500/30 transition-all">
             <span class="text-sm font-medium text-slate-800 dark:text-slate-200">Big Ideas @ Berkeley Winner</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
@@ -760,10 +963,9 @@
               <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
             </svg>
           </div>
-          <div
+          <div data-aos="fade-left" data-aos-delay="250"
             class="group flex items-center justify-between p-4 rounded-xl border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 hover:border-primary-500/30 transition-all">
-            <span class="text-sm font-medium text-slate-800 dark:text-slate-200">Qualcomm Innovation Fellowship
-              Finalist</span>
+            <span class="text-sm font-medium text-slate-800 dark:text-slate-200">Qualcomm Innovation Fellowship Finalist</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
               class="text-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -771,10 +973,9 @@
               <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
             </svg>
           </div>
-          <div
+          <div data-aos="fade-left" data-aos-delay="300"
             class="group flex items-center justify-between p-4 rounded-xl border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 hover:border-primary-500/30 transition-all">
-            <span class="text-sm font-medium text-slate-800 dark:text-slate-200">ACM CHI Best Paper Honorable
-              Mention</span>
+            <span class="text-sm font-medium text-slate-800 dark:text-slate-200">ACM CHI Best Paper Honorable Mention</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
               class="text-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -798,8 +999,8 @@
         </div>
 
         <div class="flex justify-center gap-6">
-          <a href="https://github.com/anujtewari17" target="_blank"
-            class="text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white hover:scale-110 transition-all">
+          <a href="https://github.com/anujtewari17" target="_blank" rel="noopener noreferrer"
+            class="icon-github text-slate-400 dark:text-slate-500 hover:scale-110 transition-all" style="transition: color 0.2s, filter 0.2s, transform 0.2s;">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path
@@ -808,8 +1009,8 @@
             </svg>
             <span class="sr-only">GitHub</span>
           </a>
-          <a href="https://www.linkedin.com/in/anuj-tewari" target="_blank"
-            class="text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white hover:scale-110 transition-all">
+          <a href="https://www.linkedin.com/in/anuj-tewari" target="_blank" rel="noopener noreferrer"
+            class="icon-linkedin text-slate-400 dark:text-slate-500 hover:scale-110 transition-all" style="transition: color 0.2s, filter 0.2s, transform 0.2s;">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
@@ -817,6 +1018,16 @@
               <circle cx="4" cy="4" r="2" />
             </svg>
             <span class="sr-only">LinkedIn</span>
+          </a>
+          <a href="https://scholar.google.com/citations?user=RLvAe8IAAAAJ&hl=en" target="_blank" rel="noopener noreferrer"
+            class="icon-scholar text-slate-400 dark:text-slate-500 hover:scale-110 transition-all" style="transition: color 0.2s, filter 0.2s, transform 0.2s;">
+            <!-- Google Scholar mortarboard icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+              <path d="M6 12v5c3 3 9 3 12 0v-5" />
+            </svg>
+            <span class="sr-only">Google Scholar</span>
           </a>
         </div>
       </div>
@@ -828,150 +1039,168 @@
   </main>
 
   <!-- AOS + small JS -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <!-- tsParticles -->
-  <script src="https://cdn.jsdelivr.net/npm/@tsparticles/bundle@3.3.0/tsparticles.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
   <!-- Vanilla Tilt -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js" defer></script>
   <!-- Typewriter Effect -->
-  <script src="https://unpkg.com/typewriter-effect@2.21.0/dist/core.js"></script>
+  <script src="https://unpkg.com/typewriter-effect@2.21.0/dist/core.js" defer></script>
 
   <script>
-    AOS.init({
-      once: true,
-      duration: 800,
-      easing: 'ease-out-cubic',
-      offset: 50,
-    });
+    document.addEventListener('DOMContentLoaded', () => {
+      AOS.init({
+        once: true,
+        duration: 800,
+        easing: 'ease-out-cubic',
+        offset: 50,
+      });
 
-    // Set current year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
+      // Set current year in footer
+      document.getElementById('year').textContent = new Date().getFullYear();
 
-    // 1. Initialize custom cursor
-    const cursor = document.querySelector('.custom-cursor');
-    const cursorFollower = document.querySelector('.custom-cursor-follower');
-    
-    // Use requestAnimationFrame for smooth cursor following
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let cursorX = mouseX;
-    let cursorY = mouseY;
-    let followerX = mouseX;
-    let followerY = mouseY;
+      // Custom cursor
+      const cursor = document.querySelector('.custom-cursor');
+      const cursorFollower = document.querySelector('.custom-cursor-follower');
 
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
+      let mouseX = window.innerWidth / 2;
+      let mouseY = window.innerHeight / 2;
+      let cursorX = mouseX;
+      let cursorY = mouseY;
+      let followerX = mouseX;
+      let followerY = mouseY;
 
-    function animateCursor() {
-      // Cursor moves instantly
-      cursorX = mouseX;
-      cursorY = mouseY;
-      
-      // Follower has a slight delay
-      followerX += (mouseX - followerX) * 0.15;
-      followerY += (mouseY - followerY) * 0.15;
-      
-      if (cursor && cursorFollower) {
-        cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%)`;
-        cursorFollower.style.transform = `translate(${followerX}px, ${followerY}px) translate(-50%, -50%)`;
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+
+      function animateCursor() {
+        cursorX = mouseX;
+        cursorY = mouseY;
+        followerX += (mouseX - followerX) * 0.15;
+        followerY += (mouseY - followerY) * 0.15;
+        if (cursor && cursorFollower) {
+          cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%)`;
+          cursorFollower.style.transform = `translate(${followerX}px, ${followerY}px) translate(-50%, -50%)`;
+        }
+        requestAnimationFrame(animateCursor);
       }
-      
-      requestAnimationFrame(animateCursor);
-    }
-    animateCursor();
-    
-    // Expand cursor on interactive elements
-    const iteractiveEls = document.querySelectorAll('a, button');
-    iteractiveEls.forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        if(cursorFollower) cursorFollower.classList.add('hovering');
-      });
-      el.addEventListener('mouseleave', () => {
-        if(cursorFollower) cursorFollower.classList.remove('hovering');
-      });
-      
-      // 6. Magnetic Effect for rounded buttons
-      if(el.classList.contains('rounded-full')) {
-        el.addEventListener('mousemove', (e) => {
-          const rect = el.getBoundingClientRect();
-          const x = e.clientX - rect.left - rect.width / 2;
-          const y = e.clientY - rect.top - rect.height / 2;
-          el.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px) scale(1.05)`;
+      animateCursor();
+
+      // Expand cursor on interactive elements + magnetic effect on rounded buttons
+      const interactiveEls = document.querySelectorAll('a, button');
+      interactiveEls.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          if (cursorFollower) cursorFollower.classList.add('hovering');
         });
         el.addEventListener('mouseleave', () => {
-          el.style.transform = `translate(0px, 0px) scale(1)`;
+          if (cursorFollower) cursorFollower.classList.remove('hovering');
         });
-      }
-    });
 
-    // 2. Scroll Progress Bar
-    const progressBar = document.getElementById('scroll-progress');
-    window.addEventListener('scroll', () => {
-      const scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrollProgress = scrollTotal > 0 ? (window.scrollY / scrollTotal) : 0;
-      if (progressBar) progressBar.style.width = `${scrollProgress * 100}%`;
-    });
-
-    // 3. Vanilla Tilt for Cards
-    document.querySelectorAll('.glass-card').forEach(el => {
-      el.setAttribute('data-tilt', '');
-      el.setAttribute('data-tilt-max', '4');
-      el.setAttribute('data-tilt-speed', '400');
-      el.setAttribute('data-tilt-glare', 'true');
-      el.setAttribute('data-tilt-max-glare', '0.1');
-    });
-    if (typeof VanillaTilt !== 'undefined') {
-      VanillaTilt.init(document.querySelectorAll("[data-tilt]"));
-    }
-
-    // 4. Typewriter Effect
-    const typeWrapper = document.getElementById('typewriter-wrapper');
-    if (typeWrapper && typeof Typewriter !== 'undefined') {
-      new Typewriter(typeWrapper, {
-        loop: true,
-        delay: 50,
-        deleteSpeed: 30,
-      })
-      .typeString('Head of Research, Google AI Overviews and AI Mode')
-      .pauseFor(3000)
-      .deleteAll()
-      .typeString('Computer Scientist & Product Research Leader')
-      .pauseFor(2500)
-      .deleteAll()
-      .typeString('Bridging the gap between HCI and AI')
-      .pauseFor(2500)
-      .start();
-    }
-
-    // 5. tsParticles initialization
-    if (typeof tsParticles !== 'undefined') {
-      tsParticles.load({
-        id: "tsparticles",
-        options: {
-          particles: {
-            color: { value: ["#3b82f6", "#a855f7", "#22d3ee"] },
-            number: { value: 60, density: { enable: true, area: 800 } },
-            opacity: { value: { min: 0.1, max: 0.5 } },
-            size: { value: { min: 1, max: 3 } },
-            move: { enable: true, speed: 0.8, random: true, direction: "none", outModes: "out" },
-            links: { enable: true, color: "#9ca3af", opacity: 0.1, distance: 150 }
-          },
-          interactivity: {
-            events: {
-              onHover: { enable: true, mode: "grab" },
-            },
-            modes: {
-              grab: { distance: 140, links: { opacity: 0.5 } }
-            }
-          },
-          background: { color: { value: "transparent" } },
-          fpsLimit: 60,
-          detectRetina: true
+        if (el.classList.contains('rounded-full')) {
+          el.addEventListener('mousemove', (e) => {
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            el.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px) scale(1.05)`;
+          });
+          el.addEventListener('mouseleave', () => {
+            el.style.transform = `translate(0px, 0px) scale(1)`;
+          });
         }
       });
-    }
+
+      // Scroll progress bar
+      const progressBar = document.getElementById('scroll-progress');
+      window.addEventListener('scroll', () => {
+        const scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollProgress = scrollTotal > 0 ? (window.scrollY / scrollTotal) : 0;
+        if (progressBar) progressBar.style.width = `${scrollProgress * 100}%`;
+      });
+
+      // Vanilla Tilt for cards
+      document.querySelectorAll('.glass-card').forEach(el => {
+        el.setAttribute('data-tilt', '');
+        el.setAttribute('data-tilt-max', '4');
+        el.setAttribute('data-tilt-speed', '400');
+        el.setAttribute('data-tilt-glare', 'true');
+        el.setAttribute('data-tilt-max-glare', '0.1');
+      });
+      if (typeof VanillaTilt !== 'undefined') {
+        VanillaTilt.init(document.querySelectorAll('[data-tilt]'));
+      }
+
+      // Typewriter effect
+      const typeWrapper = document.getElementById('typewriter-wrapper');
+      if (typeWrapper && typeof Typewriter !== 'undefined') {
+        new Typewriter(typeWrapper, { loop: true, delay: 50, deleteSpeed: 30 })
+          .typeString('Head of Research, Google AI Overviews and AI Mode')
+          .pauseFor(3000)
+          .deleteAll()
+          .typeString('Computer Scientist &amp; Product Research Leader')
+          .pauseFor(2500)
+          .deleteAll()
+          .typeString('Bridging the gap between HCI and AI')
+          .pauseFor(2500)
+          .start();
+      }
+
+      // Mobile navigation
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const hamburgerIcon = document.getElementById('hamburger-icon');
+      const closeIcon = document.getElementById('close-icon');
+
+      function openMobileMenu() {
+        mobileMenu.classList.remove('hidden');
+        hamburgerIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+      window.closeMobileMenu = function closeMobileMenu() {
+        mobileMenu.classList.add('hidden');
+        hamburgerIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      };
+      if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', () => {
+          mobileMenu.classList.contains('hidden') ? openMobileMenu() : window.closeMobileMenu();
+        });
+      }
+      // Close mobile menu on Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobileMenu && !mobileMenu.classList.contains('hidden')) {
+          window.closeMobileMenu();
+        }
+      });
+
+      // Count-up animation for hero stats
+      const countEls = document.querySelectorAll('[data-count]');
+      if (countEls.length) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            observer.unobserve(entry.target);
+            const el = entry.target;
+            const target = parseInt(el.dataset.count, 10);
+            const suffix = el.dataset.suffix || '';
+            const duration = 1200;
+            const step = 16;
+            const steps = Math.round(duration / step);
+            let current = 0;
+            const increment = target / steps;
+            const timer = setInterval(() => {
+              current = Math.min(current + increment, target);
+              el.textContent = Math.round(current) + suffix;
+              if (current >= target) clearInterval(timer);
+            }, step);
+          });
+        }, { threshold: 0.5 });
+        countEls.forEach(el => observer.observe(el));
+      }
+    });
   </script>
 </body>
 
