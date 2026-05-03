@@ -27,8 +27,8 @@
 
   <!-- Canonical & Theme -->
   <link rel="canonical" href="https://anujtewari.net/" />
-  <meta name="theme-color" content="#0C0A07" media="(prefers-color-scheme: dark)" />
-  <meta name="theme-color" content="#FAF5EE" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#070B14" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#F6FAFE" media="(prefers-color-scheme: light)" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,28 +59,28 @@
           },
           colors: {
             slate: {
-              50:  '#FAF5EE',
-              100: '#F5EAD9',
-              200: '#E8D5BC',
-              300: '#D4B898',
-              400: '#B89070',
-              500: '#8A6A50',
-              600: '#5C4530',
-              700: '#3D2E1A',
-              800: '#261E12',
-              850: '#1C160C',
-              900: '#141008',
-              950: '#0C0A07',
+              50:  '#F6FAFE',
+              100: '#EEF4FA',
+              200: '#D8E6F3',
+              300: '#B8CEE6',
+              400: '#8AAEC9',
+              500: '#5C86A8',
+              600: '#3D6480',
+              700: '#274460',
+              800: '#172E48',
+              850: '#101E35',
+              900: '#0E1628',
+              950: '#070B14',
             },
             primary: {
-              400: '#E8956F',
-              500: '#D97757',
-              600: '#C4633E',
+              400: '#A5B4FC',
+              500: '#818CF8',
+              600: '#6366F1',
             },
             accent: {
-              400: '#F0B878',
-              500: '#E8A050',
-              600: '#D4893A',
+              400: '#67E8F9',
+              500: '#22D3EE',
+              600: '#06B6D4',
             },
           },
           backgroundImage: {
@@ -109,16 +109,16 @@
     }
 
     ::-webkit-scrollbar-track {
-      background: #0C0A07;
+      background: #070B14;
     }
 
     ::-webkit-scrollbar-thumb {
-      background: #3D2E1A;
+      background: #274460;
       border-radius: 4px;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-      background: #5C4530;
+      background: #3D6480;
     }
 
     .glass-card {
@@ -144,19 +144,19 @@
     }
 
     .dark .glass-card:hover {
-      background: rgba(217, 119, 87, 0.06);
-      border-color: rgba(217, 119, 87, 0.3);
+      background: rgba(129, 140, 248, 0.06);
+      border-color: rgba(129, 140, 248, 0.3);
       box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
     }
 
     .light .glass-card:hover {
       background: rgba(255, 255, 255, 0.95);
-      border-color: rgba(217, 119, 87, 0.25);
+      border-color: rgba(99, 102, 241, 0.25);
       box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
     }
 
     .gradient-text {
-      background: linear-gradient(to right, #D97757, #E8A050, #F5EAD9);
+      background: linear-gradient(to right, #818CF8, #22D3EE, #A5B4FC);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -207,11 +207,11 @@
     }
 
     .glow-on-hover:hover {
-      box-shadow: 0 0 20px rgba(217, 119, 87, 0.5);
+      box-shadow: 0 0 20px rgba(129, 140, 248, 0.5);
     }
 
     .dark .glow-on-hover:hover {
-      box-shadow: 0 0 30px rgba(217, 119, 87, 0.3);
+      box-shadow: 0 0 30px rgba(129, 140, 248, 0.3);
     }
 
     /* Theme Toggle Switch Styles */
@@ -220,13 +220,13 @@
       width: 44px;
       height: 24px;
       border-radius: 12px;
-      background: #3D2E1A;
+      background: #274460;
       cursor: pointer;
       transition: background 0.3s ease;
     }
 
     .light .theme-toggle-btn {
-      background: #E8D5BC;
+      background: #D8E6F3;
     }
 
     .theme-toggle-dot {
@@ -269,7 +269,7 @@
       left: 0;
       width: 6px;
       height: 6px;
-      background: #D97757;
+      background: #818CF8;
       border-radius: 50%;
       pointer-events: none;
       z-index: 10000;
@@ -285,7 +285,7 @@
       left: 0;
       width: 32px;
       height: 32px;
-      border: 1px solid rgba(217, 119, 87, 0.5);
+      border: 1px solid rgba(129, 140, 248, 0.5);
       border-radius: 50%;
       pointer-events: none;
       z-index: 9999;
@@ -298,8 +298,8 @@
     .custom-cursor-follower.hovering {
       width: 50px;
       height: 50px;
-      background: rgba(217, 119, 87, 0.1);
-      border-color: rgba(217, 119, 87, 0.8);
+      background: rgba(129, 140, 248, 0.1);
+      border-color: rgba(129, 140, 248, 0.8);
     }
     
     /* Scroll Progress Bar */
@@ -308,7 +308,7 @@
       top: 0;
       left: 0;
       height: 4px;
-      background: linear-gradient(to right, #D97757, #E8A050, #F5EAD9);
+      background: linear-gradient(to right, #818CF8, #22D3EE, #67E8F9);
       z-index: 10001;
       width: 0%;
       transform-origin: left;
@@ -320,7 +320,7 @@
       position: absolute;
       inset: -4px;
       border-radius: 2.25rem;
-      background: conic-gradient(from var(--ring-angle, 0deg), #D97757, #E8A050, #F5EAD9, #E8A050, #D97757);
+      background: conic-gradient(from var(--ring-angle, 0deg), #818CF8, #22D3EE, #67E8F9, #A5B4FC, #818CF8);
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
       mask-composite: exclude;
@@ -439,45 +439,45 @@
   <!-- Background Glow Effect & CSS Particles -->
   <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
     <!-- Lightweight CSS-only particles (zero JS, zero rAF loop) -->
-    <span class="particle" style="left:5%;width:2px;height:2px;background:#D97757;animation-duration:18s;animation-delay:0s;"></span>
-    <span class="particle" style="left:12%;width:3px;height:3px;background:#E8A050;animation-duration:24s;animation-delay:-4s;"></span>
-    <span class="particle" style="left:20%;width:2px;height:2px;background:#F0C878;animation-duration:20s;animation-delay:-9s;"></span>
-    <span class="particle" style="left:28%;width:3px;height:3px;background:#D97757;animation-duration:16s;animation-delay:-2s;"></span>
-    <span class="particle" style="left:35%;width:2px;height:2px;background:#E8A050;animation-duration:22s;animation-delay:-13s;"></span>
-    <span class="particle" style="left:42%;width:3px;height:3px;background:#F0C878;animation-duration:19s;animation-delay:-7s;"></span>
-    <span class="particle" style="left:50%;width:2px;height:2px;background:#D97757;animation-duration:25s;animation-delay:-1s;"></span>
-    <span class="particle" style="left:57%;width:3px;height:3px;background:#E8A050;animation-duration:17s;animation-delay:-11s;"></span>
-    <span class="particle" style="left:64%;width:2px;height:2px;background:#F0C878;animation-duration:21s;animation-delay:-5s;"></span>
-    <span class="particle" style="left:72%;width:3px;height:3px;background:#D97757;animation-duration:23s;animation-delay:-16s;"></span>
-    <span class="particle" style="left:79%;width:2px;height:2px;background:#E8A050;animation-duration:15s;animation-delay:-8s;"></span>
-    <span class="particle" style="left:86%;width:3px;height:3px;background:#F0C878;animation-duration:20s;animation-delay:-3s;"></span>
-    <span class="particle" style="left:93%;width:2px;height:2px;background:#D97757;animation-duration:18s;animation-delay:-14s;"></span>
-    <span class="particle" style="left:8%;width:2px;height:2px;background:#E8A050;animation-duration:26s;animation-delay:-6s;"></span>
-    <span class="particle" style="left:16%;width:3px;height:3px;background:#F0C878;animation-duration:19s;animation-delay:-10s;"></span>
-    <span class="particle" style="left:24%;width:2px;height:2px;background:#D97757;animation-duration:22s;animation-delay:-17s;"></span>
-    <span class="particle" style="left:33%;width:3px;height:3px;background:#E8A050;animation-duration:16s;animation-delay:-0.5s;"></span>
-    <span class="particle" style="left:46%;width:2px;height:2px;background:#F0C878;animation-duration:24s;animation-delay:-12s;"></span>
-    <span class="particle" style="left:54%;width:3px;height:3px;background:#D97757;animation-duration:18s;animation-delay:-15s;"></span>
-    <span class="particle" style="left:61%;width:2px;height:2px;background:#E8A050;animation-duration:21s;animation-delay:-3.5s;"></span>
-    <span class="particle" style="left:68%;width:3px;height:3px;background:#F0C878;animation-duration:23s;animation-delay:-9.5s;"></span>
-    <span class="particle" style="left:75%;width:2px;height:2px;background:#D97757;animation-duration:17s;animation-delay:-6.5s;"></span>
-    <span class="particle" style="left:83%;width:3px;height:3px;background:#E8A050;animation-duration:25s;animation-delay:-18s;"></span>
-    <span class="particle" style="left:90%;width:2px;height:2px;background:#F0C878;animation-duration:20s;animation-delay:-2.5s;"></span>
+    <span class="particle" style="left:5%;width:2px;height:2px;background:#818CF8;animation-duration:18s;animation-delay:0s;"></span>
+    <span class="particle" style="left:12%;width:3px;height:3px;background:#22D3EE;animation-duration:24s;animation-delay:-4s;"></span>
+    <span class="particle" style="left:20%;width:2px;height:2px;background:#67E8F9;animation-duration:20s;animation-delay:-9s;"></span>
+    <span class="particle" style="left:28%;width:3px;height:3px;background:#818CF8;animation-duration:16s;animation-delay:-2s;"></span>
+    <span class="particle" style="left:35%;width:2px;height:2px;background:#22D3EE;animation-duration:22s;animation-delay:-13s;"></span>
+    <span class="particle" style="left:42%;width:3px;height:3px;background:#67E8F9;animation-duration:19s;animation-delay:-7s;"></span>
+    <span class="particle" style="left:50%;width:2px;height:2px;background:#818CF8;animation-duration:25s;animation-delay:-1s;"></span>
+    <span class="particle" style="left:57%;width:3px;height:3px;background:#22D3EE;animation-duration:17s;animation-delay:-11s;"></span>
+    <span class="particle" style="left:64%;width:2px;height:2px;background:#67E8F9;animation-duration:21s;animation-delay:-5s;"></span>
+    <span class="particle" style="left:72%;width:3px;height:3px;background:#818CF8;animation-duration:23s;animation-delay:-16s;"></span>
+    <span class="particle" style="left:79%;width:2px;height:2px;background:#22D3EE;animation-duration:15s;animation-delay:-8s;"></span>
+    <span class="particle" style="left:86%;width:3px;height:3px;background:#67E8F9;animation-duration:20s;animation-delay:-3s;"></span>
+    <span class="particle" style="left:93%;width:2px;height:2px;background:#818CF8;animation-duration:18s;animation-delay:-14s;"></span>
+    <span class="particle" style="left:8%;width:2px;height:2px;background:#22D3EE;animation-duration:26s;animation-delay:-6s;"></span>
+    <span class="particle" style="left:16%;width:3px;height:3px;background:#67E8F9;animation-duration:19s;animation-delay:-10s;"></span>
+    <span class="particle" style="left:24%;width:2px;height:2px;background:#818CF8;animation-duration:22s;animation-delay:-17s;"></span>
+    <span class="particle" style="left:33%;width:3px;height:3px;background:#22D3EE;animation-duration:16s;animation-delay:-0.5s;"></span>
+    <span class="particle" style="left:46%;width:2px;height:2px;background:#67E8F9;animation-duration:24s;animation-delay:-12s;"></span>
+    <span class="particle" style="left:54%;width:3px;height:3px;background:#818CF8;animation-duration:18s;animation-delay:-15s;"></span>
+    <span class="particle" style="left:61%;width:2px;height:2px;background:#22D3EE;animation-duration:21s;animation-delay:-3.5s;"></span>
+    <span class="particle" style="left:68%;width:3px;height:3px;background:#67E8F9;animation-duration:23s;animation-delay:-9.5s;"></span>
+    <span class="particle" style="left:75%;width:2px;height:2px;background:#818CF8;animation-duration:17s;animation-delay:-6.5s;"></span>
+    <span class="particle" style="left:83%;width:3px;height:3px;background:#22D3EE;animation-duration:25s;animation-delay:-18s;"></span>
+    <span class="particle" style="left:90%;width:2px;height:2px;background:#67E8F9;animation-duration:20s;animation-delay:-2.5s;"></span>
     <div
       class="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full blur-[120px] animate-pulse-slow"
-      style="background: rgba(217,119,87,0.12);">
+      style="background: rgba(129,140,248,0.12);">
     </div>
     <div
       class="absolute bottom-[-10%] left-[-5%] w-[600px] h-[600px] rounded-full blur-[120px] animate-pulse-slow"
-      style="background: rgba(232,160,80,0.10); animation-delay: -4s;">
+      style="background: rgba(34,211,238,0.09); animation-delay: -4s;">
     </div>
     <div
       class="absolute top-[20%] left-[10%] w-[400px] h-[400px] rounded-full blur-[100px] animate-float"
-      style="background: rgba(245,234,217,0.06);">
+      style="background: rgba(165,180,252,0.07);">
     </div>
     <div
       class="absolute bottom-[20%] right-[10%] w-[400px] h-[400px] rounded-full blur-[100px] animate-float"
-      style="background: rgba(196,99,62,0.08); animation-delay: -3s;">
+      style="background: rgba(103,232,249,0.06); animation-delay: -3s;">
     </div>
   </div>
 
