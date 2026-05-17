@@ -370,14 +370,12 @@
     .p-up    { animation-name: meteor-up; }
     .p-right { animation-name: meteor-right; border-radius: 0 50% 50% 0; }
     .p-left  { animation-name: meteor-left;  border-radius: 50% 0 0 50%; }
-    .p-dgr   { animation-name: meteor-diag-r; }
-    .p-dgl   { animation-name: meteor-diag-l; }
 
     @keyframes meteor-up {
-      0%   { opacity: 0; transform: translateY(110vh) rotate(var(--r, 5deg)); }
+      0%   { opacity: 0; transform: translateY(110vh); }
       10%  { opacity: 0.32; }
       90%  { opacity: 0.22; }
-      100% { opacity: 0; transform: translateY(-10vh) rotate(var(--r, 5deg)); }
+      100% { opacity: 0; transform: translateY(-10vh); }
     }
     @keyframes meteor-right {
       0%   { opacity: 0; transform: translateX(-10vw); }
@@ -391,19 +389,6 @@
       90%  { opacity: 0.22; }
       100% { opacity: 0; transform: translateX(-10vw); }
     }
-    @keyframes meteor-diag-r {
-      0%   { opacity: 0; transform: translate(-10vw, 80vh) rotate(var(--r, 45deg)); }
-      10%  { opacity: 0.32; }
-      90%  { opacity: 0.22; }
-      100% { opacity: 0; transform: translate(80vw, -10vh) rotate(var(--r, 45deg)); }
-    }
-    @keyframes meteor-diag-l {
-      0%   { opacity: 0; transform: translate(110vw, 80vh) rotate(var(--r, -45deg)); }
-      10%  { opacity: 0.32; }
-      90%  { opacity: 0.22; }
-      100% { opacity: 0; transform: translate(-10vw, -10vh) rotate(var(--r, -45deg)); }
-    }
-
     /* Ambient blob hue rotation */
     @keyframes blob-hue {
       to { filter: hue-rotate(360deg); }
@@ -493,38 +478,20 @@
   <!-- Background Glow Effect & CSS Particles -->
   <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
     <!-- Upward meteors -->
-    <span class="particle p-up" style="left:3%;width:1px;height:35px;background:linear-gradient(to bottom,#818CF8,transparent);--r:8deg;animation-duration:16s;animation-delay:0s;"></span>
-    <span class="particle p-up" style="left:9%;width:2px;height:45px;background:linear-gradient(to bottom,#22D3EE,transparent);--r:15deg;animation-duration:21s;animation-delay:-4s;"></span>
-    <span class="particle p-up" style="left:17%;width:1px;height:30px;background:linear-gradient(to bottom,#67E8F9,transparent);--r:5deg;animation-duration:18s;animation-delay:-9s;"></span>
-    <span class="particle p-up" style="left:24%;width:2px;height:50px;background:linear-gradient(to bottom,#818CF8,transparent);--r:12deg;animation-duration:14s;animation-delay:-2s;"></span>
-    <span class="particle p-up" style="left:33%;width:1px;height:28px;background:linear-gradient(to bottom,#22D3EE,transparent);--r:20deg;animation-duration:20s;animation-delay:-13s;"></span>
-    <span class="particle p-up" style="left:41%;width:2px;height:40px;background:linear-gradient(to bottom,#67E8F9,transparent);--r:10deg;animation-duration:17s;animation-delay:-7s;"></span>
-    <span class="particle p-up" style="left:50%;width:1px;height:35px;background:linear-gradient(to bottom,#818CF8,transparent);--r:18deg;animation-duration:22s;animation-delay:-1s;"></span>
-    <span class="particle p-up" style="left:58%;width:2px;height:45px;background:linear-gradient(to bottom,#22D3EE,transparent);--r:6deg;animation-duration:15s;animation-delay:-11s;"></span>
-    <span class="particle p-up" style="left:67%;width:1px;height:55px;background:linear-gradient(to bottom,#67E8F9,transparent);--r:14deg;animation-duration:19s;animation-delay:-5s;"></span>
-    <span class="particle p-up" style="left:75%;width:2px;height:32px;background:linear-gradient(to bottom,#818CF8,transparent);--r:22deg;animation-duration:13s;animation-delay:-16s;"></span>
-    <span class="particle p-up" style="left:83%;width:1px;height:42px;background:linear-gradient(to bottom,#22D3EE,transparent);--r:9deg;animation-duration:20s;animation-delay:-8s;"></span>
-    <span class="particle p-up" style="left:93%;width:2px;height:38px;background:linear-gradient(to bottom,#67E8F9,transparent);--r:17deg;animation-duration:16s;animation-delay:-3s;"></span>
+    <span class="particle p-up" style="left:7%;width:1px;height:35px;background:linear-gradient(to bottom,#818CF8,transparent);animation-duration:17s;animation-delay:0s;"></span>
+    <span class="particle p-up" style="left:22%;width:2px;height:45px;background:linear-gradient(to bottom,#22D3EE,transparent);animation-duration:22s;animation-delay:-6s;"></span>
+    <span class="particle p-up" style="left:40%;width:1px;height:30px;background:linear-gradient(to bottom,#67E8F9,transparent);animation-duration:19s;animation-delay:-11s;"></span>
+    <span class="particle p-up" style="left:57%;width:2px;height:50px;background:linear-gradient(to bottom,#818CF8,transparent);animation-duration:15s;animation-delay:-3s;"></span>
+    <span class="particle p-up" style="left:73%;width:1px;height:38px;background:linear-gradient(to bottom,#22D3EE,transparent);animation-duration:21s;animation-delay:-14s;"></span>
+    <span class="particle p-up" style="left:90%;width:2px;height:42px;background:linear-gradient(to bottom,#67E8F9,transparent);animation-duration:18s;animation-delay:-8s;"></span>
     <!-- Rightward meteors -->
-    <span class="particle p-right" style="top:8%;height:1px;width:55px;background:linear-gradient(to right,transparent,#818CF8);animation-duration:13s;animation-delay:-2s;"></span>
-    <span class="particle p-right" style="top:22%;height:2px;width:65px;background:linear-gradient(to right,transparent,#22D3EE);animation-duration:17s;animation-delay:-7s;"></span>
-    <span class="particle p-right" style="top:38%;height:1px;width:45px;background:linear-gradient(to right,transparent,#67E8F9);animation-duration:11s;animation-delay:-14s;"></span>
-    <span class="particle p-right" style="top:55%;height:2px;width:70px;background:linear-gradient(to right,transparent,#818CF8);animation-duration:15s;animation-delay:-5s;"></span>
-    <span class="particle p-right" style="top:72%;height:1px;width:50px;background:linear-gradient(to right,transparent,#22D3EE);animation-duration:18s;animation-delay:-10s;"></span>
-    <span class="particle p-right" style="top:88%;height:2px;width:60px;background:linear-gradient(to right,transparent,#67E8F9);animation-duration:12s;animation-delay:-1s;"></span>
+    <span class="particle p-right" style="top:15%;height:1px;width:55px;background:linear-gradient(to right,transparent,#818CF8);animation-duration:14s;animation-delay:-3s;"></span>
+    <span class="particle p-right" style="top:45%;height:2px;width:65px;background:linear-gradient(to right,transparent,#22D3EE);animation-duration:18s;animation-delay:-9s;"></span>
+    <span class="particle p-right" style="top:75%;height:1px;width:50px;background:linear-gradient(to right,transparent,#67E8F9);animation-duration:12s;animation-delay:-16s;"></span>
     <!-- Leftward meteors -->
-    <span class="particle p-left" style="top:15%;height:1px;width:50px;background:linear-gradient(to left,transparent,#22D3EE);animation-duration:14s;animation-delay:-6s;"></span>
-    <span class="particle p-left" style="top:30%;height:2px;width:60px;background:linear-gradient(to left,transparent,#818CF8);animation-duration:19s;animation-delay:-11s;"></span>
-    <span class="particle p-left" style="top:47%;height:1px;width:40px;background:linear-gradient(to left,transparent,#67E8F9);animation-duration:12s;animation-delay:-3s;"></span>
-    <span class="particle p-left" style="top:63%;height:2px;width:55px;background:linear-gradient(to left,transparent,#818CF8);animation-duration:16s;animation-delay:-8s;"></span>
-    <span class="particle p-left" style="top:80%;height:1px;width:45px;background:linear-gradient(to left,transparent,#22D3EE);animation-duration:10s;animation-delay:-15s;"></span>
-    <!-- Diagonal right meteors -->
-    <span class="particle p-dgr" style="top:20%;left:5%;width:2px;height:50px;background:linear-gradient(to bottom,#818CF8,transparent);--r:45deg;animation-duration:18s;animation-delay:-4s;"></span>
-    <span class="particle p-dgr" style="top:50%;left:30%;width:1px;height:40px;background:linear-gradient(to bottom,#22D3EE,transparent);--r:45deg;animation-duration:22s;animation-delay:-12s;"></span>
-    <span class="particle p-dgr" style="top:70%;left:60%;width:2px;height:55px;background:linear-gradient(to bottom,#67E8F9,transparent);--r:45deg;animation-duration:15s;animation-delay:-8s;"></span>
-    <!-- Diagonal left meteors -->
-    <span class="particle p-dgl" style="top:25%;left:80%;width:2px;height:45px;background:linear-gradient(to bottom,#818CF8,transparent);--r:-45deg;animation-duration:20s;animation-delay:-6s;"></span>
-    <span class="particle p-dgl" style="top:65%;left:45%;width:1px;height:35px;background:linear-gradient(to bottom,#22D3EE,transparent);--r:-45deg;animation-duration:14s;animation-delay:-17s;"></span>
+    <span class="particle p-left" style="top:30%;height:1px;width:50px;background:linear-gradient(to left,transparent,#22D3EE);animation-duration:16s;animation-delay:-7s;"></span>
+    <span class="particle p-left" style="top:60%;height:2px;width:60px;background:linear-gradient(to left,transparent,#818CF8);animation-duration:20s;animation-delay:-13s;"></span>
+    <span class="particle p-left" style="top:85%;height:1px;width:45px;background:linear-gradient(to left,transparent,#67E8F9);animation-duration:13s;animation-delay:-2s;"></span>
     <div id="blob-wrapper">
       <div
         class="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full blur-[120px] animate-pulse-slow"
