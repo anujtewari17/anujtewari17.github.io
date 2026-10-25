@@ -1,0 +1,13 @@
+/* Editorial refresh: typography, focus and reduced motion */
+:root{--editorial-accent:#628db1}
+body{font-family:Inter,system-ui,sans-serif;letter-spacing:-.012em}
+h1,h2,h3{letter-spacing:-.055em!important;text-wrap:balance}
+h1{line-height:1.08!important}
+p{line-height:1.8;text-wrap:pretty}
+section{scroll-margin-top:5rem}
+.glass-card{border-radius:1.25rem!important;box-shadow:none!important}
+.glass-card:hover{transform:translateY(-3px)}
+.gradient-text{animation:none!important;background:linear-gradient(110deg,#818cf8,#22d3ee)!important;background-clip:text!important;-webkit-background-clip:text!important}
+a:focus-visible,button:focus-visible{outline:3px solid #22d3ee!important;outline-offset:4px}
+@media(max-width:640px){p{line-height:1.7}.glass-card{border-radius:1rem!important}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
